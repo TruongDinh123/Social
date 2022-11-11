@@ -1,6 +1,7 @@
 import { db } from "../connect.js";
 import Jwt from "jsonwebtoken";
 import moment from "moment";
+
 export const getPosts = (req, res) => {
   const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("not logged in!");

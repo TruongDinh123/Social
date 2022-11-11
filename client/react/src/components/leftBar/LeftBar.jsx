@@ -35,14 +35,22 @@ const LeftBar = () => {
             <img src={Friends} alt="" />
             <span>Friends</span>
           </div>
-          <div className="item">
+          <Link
+            to={`/tour/`}
+            style={{ textDecoration: "none", color: "inherit" }}
+            className="item"
+          >
             <img src={Groups} alt="" />
             <span> Tours</span>
-          </div>
-          <div className="item">
+          </Link>
+          <Link
+            to={`/login`}
+            style={{ textDecoration: "none", color: "inherit" }}
+            className="item"
+          >
             <img src={Market} alt="" />
-            <span>Mua sắm đi Tours</span>
-          </div>
+            <span>Đăng Nhập</span>
+          </Link>
           {/* <div className="item">
             <img src={Watch} alt="" />
             <span>Watch</span>
