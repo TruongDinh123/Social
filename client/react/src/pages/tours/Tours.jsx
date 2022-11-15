@@ -12,12 +12,14 @@ const Tours = () => {
   console.log(data);
 
   return (
-    <div className="body">
-      {error
-        ? "Something went wrong!"
-        : isLoading
-        ? "loading"
-        : data.map((tour) => <Tour tour={tour} key={tour.id} />)}
+    <div className="lisitingSection">
+      <div className="secContainer flex">
+        {error
+          ? "Something went wrong!"
+          : isLoading
+          ? "loading"
+          : data.map((tour) => <Tour tour={tour} key={tour.id} />)}
+      </div>
     </div>
   );
 };

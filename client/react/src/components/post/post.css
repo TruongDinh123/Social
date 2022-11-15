@@ -1,0 +1,193 @@
+@import url("https:fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+.mainContent {
+  width: 82%;
+  height: 100%;
+  padding: 2rem;
+  overflow: auto;
+}
+.mainContent .bottom {
+  margin-top: 2rem;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  transition: 0.3 ease;
+}
+
+/* color and style (default) */
+:root {
+  --PrimaryColor: hsl(94, 59%, 35%);
+  --HoverColor: #bdf094;
+  --paleGreen: hsl(96, 75%, 89%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 3%, 6%);
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: hsl(330, 12%, 97%);
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2fontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+}
+
+:default style html {
+  font-size: 90%;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.icon {
+  font-size: var(--h2fontSize);
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.gird {
+  display: grid;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--inputColor);
+  padding: 0.8rem 1rem;
+  color: var(--textColor);
+}
+
+.btn .icon {
+  margin-left: 0.5rem;
+}
+
+.btn:hover {
+  background: var(--paleGreen);
+  color: var(--PrimaryColor);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 1rem;
+}
+
+.container {
+  position: relative;
+  width: 95vw;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bgColor);
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 8px var(--greyText);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --PrimaryColor: hsl(94, 59%, 35%);
+  --HoverColor: #bdf094;
+  --paleGreen: hsl(96, 75%, 89%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 3%, 6%);
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: hsl(330, 12%, 97%);
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2fontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+}
+
+.post {
+  box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.post .mainContent {
+  padding: 20px;
+}
+.post .mainContent .user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.post .mainContent .user .userInfo {
+  display: flex;
+  gap: 20px;
+}
+.post .mainContent .user .userInfo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.post .mainContent .user .userInfo .details {
+  display: flex;
+  flex-direction: column;
+}
+.post .mainContent .user .userInfo .details .name {
+  font-weight: 500;
+}
+.post .mainContent .user .userInfo .details .date {
+  font-size: 12px;
+}
+.post .mainContent .content {
+  margin: 20px 0px;
+}
+.post .mainContent .content img {
+  width: 100%;
+  max-height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-top: 20px;
+}
+.post .mainContent .info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.post .mainContent .info .item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}/*# sourceMappingURL=post.css.map */

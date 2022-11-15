@@ -12,6 +12,17 @@ import Messages from "../../assets/10.png";
 import Tutorials from "../../assets/11.png";
 import Courses from "../../assets/12.png";
 import Fund from "../../assets/13.png";
+/////////////////////////
+import React from "react";
+// import "./sidebar.css";
+// import logo from "../../assets/Logodemo.jpg";
+// import { MdOutlineTravelExplore } from "react-icons/md";
+// import { IoShareSocialOutline } from "react-icons/io5";
+// import { CgProfile } from "react-icons/cg";
+// import { SiAirplayvideo } from "react-icons/si";
+// import { BiBarChartSquare, BiTrendingUp } from "react-icons/bi";
+// import { BsQuestionCircle } from "react-icons/bs";
+//////////////////////////
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
@@ -102,6 +113,89 @@ const LeftBar = () => {
         </div>
       </div>
     </div>
+
+    ////////////////demo //////////////
+    // <div className="sidebar gird">
+    //   <div className="logoDiv flex">
+    //     <img src={logo} alt="Image Name" />
+    //     <h2>VieTripSocial.</h2>
+    //   </div>
+
+    //   <div className="menuDiv">
+    //     <h3 className="divTitle">Quick Menu</h3>
+    //     <ul className="menuLists gird">
+    //       <li className="ListItem">
+    //         <a href="#" className="menuLink flex">
+    //           <MdOutlineTravelExplore className="icon"></MdOutlineTravelExplore>
+    //           <span className="smallText">Travel Tour</span>
+    //         </a>
+    //       </li>
+    //       <li className="ListItem">
+    //         <a href="#" className="menuLink flex">
+    //           <IoShareSocialOutline className="icon"></IoShareSocialOutline>
+    //           <span className="smallText">Social</span>
+    //         </a>
+    //       </li>
+    //       <li className="ListItem">
+    //         <Link
+    //           to={`/profile/${currentUser.profilePic}`}
+    //           style={{ textDecoration: "none", color: "inherit" }}
+    //           className="user"
+    //         >
+    //           <img src={currentUser.profilePic} alt="" />
+    //           <span>{currentUser.name}</span>
+    //         </Link>
+    //         <a href="#" className="menuLink flex">
+    //           <CgProfile className="icon"></CgProfile>
+    //           <span className="smallText">Profile</span>
+    //         </a>
+    //       </li>
+    //       <li className="ListItem">
+    //         <a href="#" className="menuLink flex">
+    //           <SiAirplayvideo className="icon"></SiAirplayvideo>
+    //           <span className="smallText">Video shorts</span>
+    //         </a>
+    //       </li>
+    //     </ul>
+    //   </div>
+
+    //   <div className="settingDiv">
+    //     <h3 className="divTitle">Settings</h3>
+    //     <ul className="menuLists gird">
+    //       <li className="ListItem">
+    //         <a href="#" className="menuLink flex">
+    //           <BiBarChartSquare className="icon"></BiBarChartSquare>
+    //           <span className="smallText">Charts</span>
+    //         </a>
+    //       </li>
+    //       <li className="ListItem">
+    //         <a href="#" className="menuLink flex">
+    //           <BiTrendingUp className="icon"></BiTrendingUp>
+    //           <span className="smallText">Trends</span>
+    //         </a>
+    //       </li>
+    //       <li className="ListItem">
+    //         <a href="#" className="menuLink flex">
+    //           <CgProfile className="icon"></CgProfile>
+    //           <span className="smallText">Profile</span>
+    //         </a>
+    //       </li>
+    //     </ul>
+    //   </div>
+
+    //   <div className="sideBarCard">
+    //     <BsQuestionCircle className="icon"></BsQuestionCircle>
+
+    //     <div className="cardContent">
+    //       <div className="circle1"></div>
+    //       <div className="circle2"></div>
+
+    //       <h3>Help Center</h3>
+    //       <p>Nếu bạn có vấn đề gì ở chúng tôi, xin hãy nhất vào mục giúp đỡ.</p>
+    //       <button className="btn">Go to help center</button>
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 

@@ -49,6 +49,8 @@ app.use("/api/posts", postRoutes);
 app.use("/api/likes", likeRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/tours", tours);
+app.use("/api/relationships", relationshipRoutes);
 
 app.listen(8800, () => {
   console.log("API working...");
