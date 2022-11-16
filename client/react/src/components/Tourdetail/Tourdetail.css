@@ -1,0 +1,89 @@
+.mainContent {
+  margin: 100px auto;
+  box-shadow: 0 0 5px #ccc;
+  width: 82%;
+  height: 100%;
+  padding: 2rem;
+  overflow: auto;
+}
+.mainContent .details {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 30px 0;
+}
+.mainContent .details .big-img {
+  max-width: 500px;
+  min-width: 290px;
+  overflow: hidden;
+  margin: 25px;
+}
+.mainContent .details .big-img img {
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.mainContent .details .box {
+  max-width: 500px;
+  min-width: 290px;
+  margin: 25px;
+}
+.mainContent .details .box .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.mainContent .details .box .row span {
+  color: crimson;
+}
+.mainContent .details .box h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.mainContent .details .box p {
+  line-height: 1.5;
+  margin: 15px;
+}
+.mainContent .details .box .thumb {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  cursor: pointer;
+  margin: 10px 0;
+}
+.mainContent .details .box .thumb img {
+  width: 90px;
+  height: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px solid #ddd;
+  margin-right: 5px;
+  opacity: 0.7;
+  border-radius: 5px;
+}
+.mainContent .details .box .thumb img .active {
+  opacity: 1;
+  border: 1px solid lightseagreen;
+}
+.mainContent .details .box .thumb .btn {
+  background: #333;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 25px;
+  margin-top: 15px;
+}
+
+@media (max-width: 500px) {
+  .thumb {
+    height: 50px;
+  }
+  .thumb img {
+    width: 50px;
+  }
+}/*# sourceMappingURL=Tourdetail.css.map */

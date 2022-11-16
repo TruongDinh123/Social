@@ -13,7 +13,6 @@ import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
 const Sidebar = () => {
   const { currentUser } = useContext(AuthContext);
-
   return (
     <div className="sidebar gird">
       <Link to="/" className="logoDiv flex">

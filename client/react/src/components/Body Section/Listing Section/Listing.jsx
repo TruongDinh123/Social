@@ -3,6 +3,7 @@ import "./listing.css";
 import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../../axios";
 import { BsArrowRight } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import { AiFillHeart } from "react-icons/ai";
 /////////////////////
 import Tour1 from "../../../assets/Tour1.jpg";
@@ -27,14 +28,20 @@ const Listing = ({ tour }) => {
       </div>
 
       <div className="secContainer flex">
-        {/* {data.map((tour) => (
-          <div className="singleItem">
-            <AiFillHeart className="icon"></AiFillHeart>
-            <img src={Tour1} alt="Image Name" />
-            <h3 key={tour.id}>{tour.name}</h3>
-            <button className="btn">Đặt Ngay</button>
-          </div>
-        ))} */}
+        {error
+          ? "something went wrong!"
+          : isLoading
+          ? "loading"
+          : data.map((tour) => (
+              <div className="singleItem">
+                <AiFillHeart className="icon"></AiFillHeart>
+                <img src={Tour1} alt="Image Name" />
+                <h3 key={tour.id}>{tour.name}</h3>
+                <Link to={`/Tourdetail/`} className="btn">
+                  Đặt Ngay
+                </Link>
+              </div>
+            ))}
       </div>
 
       <div className="sales flex">
