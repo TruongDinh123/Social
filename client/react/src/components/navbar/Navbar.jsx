@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="left">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span>VieTravel</span>
+          <span>lamasocial</span>
         </Link>
         <HomeOutlinedIcon />
         {darkMode ? (
@@ -38,20 +38,13 @@ const Navbar = () => {
         <PersonOutlinedIcon />
         <EmailOutlinedIcon />
         <NotificationsOutlinedIcon />
-        {/* <Link
-          to={`/profile/${currentUser.profilePic}`}
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <span className="name">{currentUser.name}</span>
-        </Link> */}
-        <Link
-          to={`/profile/${currentUser.profilePic}`}
-          style={{ textDecoration: "none", color: "inherit" }}
-          className="user"
-        >
-          <img src={currentUser.profilePic} alt="" />
+        <div className="user">
+          <img
+            src={"/upload/" + currentUser.profilePic}
+            alt=""
+          />
           <span>{currentUser.name}</span>
-        </Link>
+        </div>
       </div>
     </div>
   );

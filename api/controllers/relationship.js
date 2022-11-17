@@ -1,5 +1,5 @@
 import { db } from "../connect.js";
-import Jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import moment from "moment";
 export const getRelationship = (req,res)=>{
     const q = "SELECT followerUserId FROM relationships WHERE followedUserId = ?";
@@ -13,7 +13,7 @@ export const addRelationship = (req, res) => {
   const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("Not logged in!");
 
-  Jwt.verify(token, "secretkey", (err, userInfo) => {
+  jwt.verify(token, "secretkey", (err, userInfo) => {
     if (err) return res.status(403).json("Token is not valid!");
 
     const q = "INSERT INTO relationships (`followerUserId`,`followedUserId`) VALUES (?)";
