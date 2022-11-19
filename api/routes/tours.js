@@ -1,7 +1,8 @@
 import express from "express";
-import { getTour} from "../controllers/tour.js";
+import { getManyTour, getTourDetail } from "../controllers/tour.js";
 const router = express.Router();
 
-router.get("/", getTour);
+router.get("/", getManyTour);
+router.get("/find/:tour_id", getTourDetail);
 
 export default router;

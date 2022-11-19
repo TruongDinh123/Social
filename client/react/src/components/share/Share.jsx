@@ -7,21 +7,20 @@ import { AuthContext } from "../../context/authContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 
-
 const Share = () => {
   const [file, setFile] = useState(null);
   const [desc, setDesc] = useState("");
 
   const upload = async () => {
-  try {
-    const formData = new FormData();
-    formData.append("file", file);
-    const res = await makeRequest.post("/upload", formData);
-    return res.data
-  } catch (error) {
-    console.log(error)
-  }
-}
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const res = await makeRequest.post("/upload", formData);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const queryClient = useQueryClient();
 
   const mutation = useMutation(
@@ -38,21 +37,21 @@ const Share = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     let imgUrl = "";
-    if(file) imgUrl = await upload();
-    mutation.mutate({ desc, img:imgUrl});
-    setDesc("")
-    setFile(null)
+    if (file) imgUrl = await upload();
+    mutation.mutate({ desc, img: imgUrl });
+    setDesc("");
+    setFile(null);
   };
   const { currentUser } = useContext(AuthContext);
   return (
     <div className="share">
-      <div className="container">
+      <div className="containerss">
         <div className="top">
           <div className="left">
             <img src={"/upload/" + currentUser.profilePic} alt="" />
             <input
               type="text"
-              placeholder={`What's on your mind ${currentUser.name}?`}
+              placeholder={`Chia sẻ cảm nghĩ của bạn? ${currentUser.name}?`}
               onChange={(e) => setDesc(e.target.value)}
               value={desc}
             />
@@ -75,20 +74,20 @@ const Share = () => {
             <label htmlFor="file">
               <div className="item">
                 <img src={Image} alt="" />
-                <span>Add Image</span>
+                <span>Thêm ảnh</span>
               </div>
             </label>
             <div className="item">
               <img src={Map} alt="" />
-              <span>Add Place</span>
+              <span>Thêm vị trí</span>
             </div>
             <div className="item">
               <img src={Friend} alt="" />
-              <span>Tag Friends</span>
+              <span>Tag bạn bè</span>
             </div>
           </div>
           <div className="right">
-            <button onClick={handleClick}>Share</button>
+            <button onClick={handleClick}>Đăng bài</button>
           </div>
         </div>
       </div>

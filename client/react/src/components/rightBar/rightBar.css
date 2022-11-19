@@ -1,0 +1,289 @@
+@import url("https:fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+.mainContent {
+  width: 82%;
+  height: 100%;
+  padding: 2rem;
+  overflow: auto;
+}
+.mainContent .bottom {
+  margin-top: 2rem;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  transition: 0.3 ease;
+}
+
+/* color and style (default) */
+:root {
+  --PrimaryColor: hsl(94, 59%, 35%);
+  --HoverColor: #bdf094;
+  --paleGreen: hsl(96, 75%, 89%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 3%, 6%);
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: hsl(330, 12%, 97%);
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2fontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+}
+
+:default style html {
+  font-size: 90%;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.icon {
+  font-size: var(--h2fontSize);
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.gird {
+  display: grid;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--inputColor);
+  padding: 0.8rem 1rem;
+  color: var(--textColor);
+}
+
+.btn .icon {
+  margin-left: 0.5rem;
+}
+
+.btn:hover {
+  background: var(--paleGreen);
+  color: var(--PrimaryColor);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 1rem;
+}
+
+.container {
+  position: relative;
+  width: 95vw;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bgColor);
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 8px var(--greyText);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.theme-light .rightBar {
+  flex: 3;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 70px);
+  overflow: scroll;
+  background-color: #f6f3f3;
+}
+@media (max-width: 480px) {
+  .theme-light .rightBar {
+    display: none;
+  }
+}
+@media (max-width: 960px) {
+  .theme-light .rightBar {
+    display: none;
+  }
+}
+.theme-light .rightBar::-webkit-scrollbar {
+  display: none;
+}
+.theme-light .rightBar .container {
+  padding: 20px;
+}
+.theme-light .rightBar .container .item {
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+.theme-light .rightBar .container .item span {
+  color: gray;
+}
+.theme-light .rightBar .container .item .user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+.theme-light .rightBar .container .item .user .userInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+.theme-light .rightBar .container .item .user .userInfo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.theme-light .rightBar .container .item .user .userInfo .online {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: limegreen;
+  position: absolute;
+  top: 0;
+  left: 30px;
+}
+.theme-light .rightBar .container .item .user .userInfo p {
+  color: #555;
+}
+.theme-light .rightBar .container .item .user .userInfo span {
+  font-weight: 500;
+  color: #000;
+}
+.theme-light .rightBar .container .item .user .buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.theme-light .rightBar .container .item .user .buttons button {
+  border: none;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+}
+.theme-light .rightBar .container .item .user .buttons button:first-child {
+  background-color: #5271ff;
+}
+.theme-light .rightBar .container .item .user .buttons button:last-child {
+  background-color: #f0544f;
+}
+.theme-dark .rightBar {
+  flex: 3;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 70px);
+  overflow: scroll;
+  background-color: #333;
+}
+@media (max-width: 480px) {
+  .theme-dark .rightBar {
+    display: none;
+  }
+}
+@media (max-width: 960px) {
+  .theme-dark .rightBar {
+    display: none;
+  }
+}
+.theme-dark .rightBar::-webkit-scrollbar {
+  display: none;
+}
+.theme-dark .rightBar .container {
+  padding: 20px;
+}
+.theme-dark .rightBar .container .item {
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #222;
+}
+.theme-dark .rightBar .container .item span {
+  color: gray;
+}
+.theme-dark .rightBar .container .item .user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+.theme-dark .rightBar .container .item .user .userInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+.theme-dark .rightBar .container .item .user .userInfo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.theme-dark .rightBar .container .item .user .userInfo .online {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: limegreen;
+  position: absolute;
+  top: 0;
+  left: 30px;
+}
+.theme-dark .rightBar .container .item .user .userInfo p {
+  color: lightgray;
+}
+.theme-dark .rightBar .container .item .user .userInfo span {
+  font-weight: 500;
+  color: whitesmoke;
+}
+.theme-dark .rightBar .container .item .user .buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.theme-dark .rightBar .container .item .user .buttons button {
+  border: none;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+}
+.theme-dark .rightBar .container .item .user .buttons button:first-child {
+  background-color: #5271ff;
+}
+.theme-dark .rightBar .container .item .user .buttons button:last-child {
+  background-color: #f0544f;
+}/*# sourceMappingURL=rightBar.css.map */
