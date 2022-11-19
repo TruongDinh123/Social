@@ -245,8 +245,6 @@ const Profile = () => {
       })
   );
 
-  console.log(data)
-
   const queryClient = useQueryClient();
 
   const mutation = useMutation(

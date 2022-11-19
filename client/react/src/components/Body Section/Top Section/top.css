@@ -115,6 +115,7 @@
 .topSection .cardSection .rightCard p {
   padding: 1rem;
   color: var(--paleGreen);
+  
   font-weight: 500;
 }
 .topSection .cardSection .rightCard .buttons {
@@ -125,6 +126,8 @@
   padding: 0.8rem 1.5rem;
   color: var(--PrimaryColor);
   border: 2px solid transparent;
+  font-weight: 700;
+  font-size: var(--h2FontSize);
 }
 .topSection .cardSection .rightCard .buttons .transparent {
   background: none;

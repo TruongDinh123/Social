@@ -10,6 +10,7 @@ import authRoutes from "./routes/auth.js";
 import relationshipRoutes from "./routes/relationships.js";
 import provinceRoutes from "./routes/provinces.js";
 import tourRoutes from "./routes/tours.js";
+import regionRoutes from "./routes/regions.js";
 
 const app = express();
 
@@ -53,6 +54,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/relationships", relationshipRoutes);
 app.use("/api/provinces", provinceRoutes);
 app.use("/api/tours", tourRoutes);
+app.use("/api/regions", regionRoutes);
 
 app.listen(8800, () => {
   console.log("API working...");

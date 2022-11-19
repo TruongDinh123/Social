@@ -9,7 +9,7 @@ export const getManyTour = (req, res) => {
     if (err) return res.status(403).json("token is not valid");
     const q = 
       
-      `select * from tour`;
+      `select * from tour where like_count > 3`;
 
     db.query(q, [tourInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);
@@ -17,7 +17,6 @@ export const getManyTour = (req, res) => {
     });
   });
 };
-
 export const getTourDetail = (req, res) => {
   const tourId = req.params.tour_id;
   const token = req.cookies.accessToken;
@@ -33,7 +32,6 @@ export const getTourDetail = (req, res) => {
 
       return res.status(200).json(data);
     });
-            console.log(tourId)
 
   });
 };

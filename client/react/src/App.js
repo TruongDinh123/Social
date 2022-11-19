@@ -89,6 +89,11 @@ function App() {
           path: "/Tourdetail/:tour_id",
           element: <Tourdetail />,
         },
+        {
+          path: "/regions/",
+          element: <Listing />,
+        },
+        
       ],
     },
     {

@@ -39,14 +39,13 @@ const Top = () => {
 
       <div className="cardSection flex">
         <div className="rightCard flex">
-          <h1>add to Tours</h1>
           <p>
-            Du lịch giúp cho bạn sẽ trải nghiệm những thứ quý giá của bản thân!
+            "Những ngày mà đôi chân chưa mỏi, có tiền cũng khó mà mua"
           </p>
 
           <div className="buttons flex">
-            <button className="btn">Explore More</button>
-            <button className="btn transparent">Top Booked tours</button>
+            <button className="btn">Đặt Tour</button>
+            <button className="btn transparent">Mạng xã hội</button>
           </div>
           <div className="videoDiv">
             <video src={video} autoPlay loop muted></video>
