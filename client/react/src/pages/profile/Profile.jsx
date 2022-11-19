@@ -245,6 +245,8 @@ const Profile = () => {
       })
   );
 
+  console.log(data)
+
   const queryClient = useQueryClient();
 
   const mutation = useMutation(
@@ -266,15 +268,16 @@ const Profile = () => {
   };
 
   return (
-    <div className="profilesss">
+    <div className="profile">
       {isLoading ? (
         "loading"
-      ) : (
+      ) : data.map((user)=>(
         <>
-          <div className="imagesProfile">
-            <img src={"/upload/" + data.coverPic} alt="" className="cover" />
+          <div className="images">
+            
+            <img src={"../upload/" + user.coverPic} alt="" className="coverPic" />
             <img
-              src={"/upload/" + data.profilePic}
+              src={"../upload/" + user.profilePic}
               alt=""
               className="profilePic"
             />
@@ -299,15 +302,15 @@ const Profile = () => {
                 </a>
               </div>
               <div className="center">
-                <span>{data.name}</span>
+                <span>{user.name}</span>
                 <div className="info">
                   <div className="item">
                     <PlaceIcon />
-                    <span>{data.city}</span>
+                    <span>{user.city}</span>
                   </div>
                   <div className="item">
                     <LanguageIcon />
-                    <span>{data.website}</span>
+                    <span>{user.website}</span>
                   </div>
                 </div>
                 {rIsLoading ? (
@@ -332,7 +335,7 @@ const Profile = () => {
             <Posts userId={userId} />
           </div>
         </>
-      )}
+      ))}
       {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data} />}
     </div>
   );

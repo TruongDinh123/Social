@@ -50,10 +50,14 @@ const Share = () => {
       <div className="containerss">
         <div className="top">
           <div className="left">
-            <img src={"/upload/" + currentUser.profilePic} alt="" />
+            <img
+              src={"/upload/" + currentUser.profilePic}
+              alt=""
+              className="img"
+            />
             <input
               type="text"
-              placeholder={`What's on your mind ${currentUser.name}?`}
+              placeholder={`Chia sẻ cảm nghĩ của ${currentUser.name} ?`}
               onChange={(e) => setDesc(e.target.value)}
               value={desc}
             />
@@ -77,22 +81,20 @@ const Share = () => {
               <div className="item">
                 <FcAddImage className="img"></FcAddImage>
                 {/* <img src={Image} alt="" /> */}
-                <span>Add Image</span>
+                <span>Thêm ảnh</span>
               </div>
             </label>
             <div className="item">
               <BiMap className="img"></BiMap>
-              {/* <img src={Map} alt="" /> */}
-              <span>Add Place</span>
+              <span>Thêm vị trí</span>
             </div>
             <div className="item">
-              {/* <img src={Friend} alt="" /> */}
               <AiOutlineUsergroupAdd className="img"></AiOutlineUsergroupAdd>
-              <span>Tag Friends</span>
+              <span>Tag bạn bè</span>
             </div>
           </div>
           <div className="right">
-            <button onClick={handleClick}>Share</button>
+            <button onClick={handleClick}>Đăng bài</button>
           </div>
         </div>
       </div>

@@ -5,20 +5,22 @@ import { makeRequest } from "../../axios";
 
 const Tours = () => {
   const { isLoading, error, data } = useQuery(["tour"], () =>
-    makeRequest.get("/tours").then((res) => {
+    makeRequest.get("/tours/").then((res) => {
       return res.data;
     })
   );
   console.log(data);
 
   return (
-    <div className="lisitingSection">
-      <div className="secContainer flex">
-        {error
-          ? "Something went wrong!"
-          : isLoading
-          ? "loading"
-          : data.map((tour) => <Tour tour={tour} key={tour.id} />)}
+    <div className="container">
+      <div className="lisitingSection">
+        <div className="secContainer flex">
+          {error
+            ? "Something went wrong!"
+            : isLoading
+            ? "loading"
+            : data.map((tour) => <Tour tour={tour} key={tour.id} />)}
+        </div>
       </div>
     </div>
   );

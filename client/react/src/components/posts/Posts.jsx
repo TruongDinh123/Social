@@ -13,7 +13,6 @@ const Posts = ({ userId }) => {
     })
   );
 
-  console.log(data);
   return (
     <div className="mainContent post">
       <Top></Top>

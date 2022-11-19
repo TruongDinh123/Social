@@ -35,11 +35,11 @@ const LeftBar = () => {
       <div className="container">
         <div className="menu">
           <Link
-            to={`/profile/${currentUser.profilePic}`}
+            to={`/profile/${currentUser.userId}`}
             style={{ textDecoration: "none", color: "inherit" }}
             className="user"
           >
-            <img src={currentUser.profilePic} alt="" />
+            <img src={currentUser.userId} alt="" />
             <span>{currentUser.name}</span>
           </Link>
           <div className="item">

@@ -1,45 +1,52 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import "../../components/Tab/Tab.scss";
+const Tab = ({ children, active = 0 }) => {
+  const [activeTab, setActiveTab] = useState(active);
+  const [tabsData, setTabsData] = useState([]);
 
-function Tab() {
-  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    let data = [];
+
+    React.Children.forEach(children, (Element) => {
+      if (!React.isValidElement(Element)) return;
+
+      const {
+        props: { tab, children },
+      } = Element;
+      data.push({ tab, children });
+    });
+
+    setTabsData(data);
+  }, [children]);
+
   return (
-    <div className="Tab">
-      <div className="tablist">
-        <div
-          className="tabHeader"
-          onClick={() => {
-            setIndex(0);
-          }}
-        >
-          tab1
+    <>
+      <div className="wrapper">
+        <div className="tabs">
+          {tabsData.map(({ tab }, idx) => (
+            <li className="tab-title">
+              <a
+                className={`nav-link ${idx === activeTab ? "active" : ""}`}
+                href="#"
+                onClick={() => setActiveTab(idx)}
+              >
+                {tab}
+              </a>
+            </li>
+          ))}
         </div>
-        <div
-          className="tabHeader"
-          onClick={() => {
-            setIndex(1);
-          }}
-        >
-          tab2
-        </div>
-        <div
-          className="tabHeader"
-          onClick={() => {
-            setIndex(2);
-          }}
-        >
-          tab3
+        <div className="tab-content">
+          {tabsData[activeTab] && tabsData[activeTab].children}
         </div>
       </div>
-      <div className="tabcontent" hidden={index !== 0}></div>
-      <div className="tabcontent" hidden={index !== 1}>
-        noi dung 2
-      </div>
-      <div className="tabcontent" hidden={index !== 2}>
-        noi dung 3
-      </div>
-    </div>
+    </>
   );
-}
+};
 
+const TabPane = ({ children }) => {
+  return { children };
+};
+
+Tab.TabPane = TabPane;
 export default Tab;

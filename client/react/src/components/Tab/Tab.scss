@@ -1,0 +1,49 @@
+@import "../../style.scss";
+:root {
+  --PrimaryColor: hsl(94, 59%, 35%);
+  --HoverColor: #bdf094;
+  --paleGreen: hsl(96, 75%, 89%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 3%, 6%);
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: hsl(330, 12%, 97%);
+
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2fontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+}
+
+.wrapper {
+  max-width: 50rem;
+  width: 100%;
+  line-height: 30px;
+  border: 1px solid #ccc;
+
+  .tabs {
+    display: flex;
+    .tab-title {
+      padding: 2rem;
+      border-bottom: 1px solid #ccc;
+      width: 100%;
+      border-right: 1px solid #ccc;
+      .nav-link {
+        color: var(--textColor);
+        font-weight: 500;
+      }
+      &:hover {
+        background: var(--itemCardHover);
+        box-shadow: 0 2px 2px var(--inputColor);
+      }
+    }
+  }
+
+  .tab-content {
+    padding: 2rem;
+  }
+}

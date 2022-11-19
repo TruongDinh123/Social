@@ -24,19 +24,21 @@ const Sidebar = () => {
         <h3 className="divTitle">Quick Menu</h3>
         <ul className="menuLists gird">
           <li className="ListItem">
-            <a href="#" className="menuLink flex">
+            <Link to= {`/tour/`}>
+              <a href="#" className="menuLink flex">
               <MdOutlineTravelExplore className="icon"></MdOutlineTravelExplore>
               <span className="smallText">Travel Tour</span>
             </a>
+            </Link>
           </li>
-          <Link to={`/post/`} className="ListItem">
+          <Link to={`/posts/`} className="ListItem">
             <a href="#" className="menuLink flex">
               <IoShareSocialOutline className="icon"></IoShareSocialOutline>
               <span className="smallText">Social</span>
             </a>
           </Link>
           <Link
-            to={`/profile/${currentUser.profilePic}`}
+            to={`/profile/${currentUser.id}`}
             style={{ textDecoration: "none", color: "inherit" }}
             className="ListItem"
           >

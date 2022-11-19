@@ -1,5 +1,6 @@
 import React from "react";
-import "./listing.css";
+import "./listing.scss";
+
 import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../../axios";
 import { BsArrowRight } from "react-icons/bs";
@@ -14,7 +15,6 @@ const Listing = ({ tour }) => {
       return res.data;
     })
   );
-  console.log(data);
   return (
     <div className="lisitingSection">
       <div className="heading flex">
@@ -35,9 +35,18 @@ const Listing = ({ tour }) => {
           : data.map((tour) => (
               <div className="singleItem">
                 <AiFillHeart className="icon"></AiFillHeart>
-                <img src={Tour1} alt="Image Name" />
-                <h3 key={tour.id}>{tour.name}</h3>
-                <Link to={`/Tourdetail/`} className="btn">
+                <img
+                  key={tour.tour_id}
+                  src={"../upload/" + tour.image}
+                  alt=""
+                />
+                <h3>{tour.tour_name}</h3>
+                <p>$ {tour.price}</p>
+                <Link
+                  key={tour.tour_id}
+                  to={`/Tourdetail/${tour.tour_id}`}
+                  className="btn"
+                >
                   Đặt Ngay
                 </Link>
               </div>

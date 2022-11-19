@@ -19,9 +19,6 @@
   --smallestFontSize: 0.75rem;
 }
 
-.lisitingSection {
-  flex-basis: 70%;
-}
 .lisitingSection .heading {
   width: 100%;
   justify-content: space-between;
@@ -33,6 +30,7 @@
 }
 .lisitingSection .heading .btn {
   border: 1px solid transparent;
+  color: var(--blackColor);
 }
 .lisitingSection .heading .btn:hover {
   border: 1px solid var(--PrimaryColor);
@@ -46,8 +44,7 @@
 }
 .lisitingSection .secContainer .singleItem {
   position: relative;
-  width: 150px;
-  height: 170px;
+  width: 200px;
   display: flex;
   align-items: center;
   flex-direction: column;

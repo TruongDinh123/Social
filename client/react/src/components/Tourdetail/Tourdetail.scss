@@ -1,6 +1,6 @@
 .mainContent {
   // margin: 100px auto;
-  box-shadow: 0 0 5px #ccc;
+  // box-shadow: 0 0 5px #ccc;
   width: 100%;
   height: 100%;
   padding: 2rem;
@@ -37,16 +37,19 @@
         margin-bottom: 15px;
         span {
           color: crimson;
+          font-size: 1.2rem;
         }
       }
       h2 {
         text-transform: uppercase;
         letter-spacing: 2px;
+        font-size: 1.8rem;
       }
 
       p {
         line-height: 1.5;
         margin: 15px;
+        font-size: 1.4rem;
       }
 
       .thumb {
@@ -70,15 +73,16 @@
             border: 1px solid lightseagreen;
           }
         }
-        .btn {
-          background: #333;
-          color: white;
-          outline: none;
-          border: none;
-          cursor: pointer;
-          padding: 10px 25px;
-          margin-top: 15px;
-        }
+      }
+      .box-btn {
+        background: #528e25;
+        font-size: 1.4rem;
+        color: white;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px 25px;
+        margin-right: 15px;
       }
     }
   }

@@ -31,6 +31,7 @@
     padding: 20px;
     margin-top: 20px;
     .top {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -45,11 +46,12 @@
         }
 
         input {
+          position: absolute;
           border: none;
           outline: none;
           padding: 20px 10px;
           background-color: transparent;
-          width: 60%;
+          width: 100%;
           color: var(--blackColor);
         }
       }

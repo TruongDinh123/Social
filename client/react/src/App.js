@@ -27,6 +27,7 @@ import Body from "./components/Body Section/Body";
 import Posts from "../src/components/posts/Posts";
 import Sivdeos from "./pages/videoShorts/Svideos";
 import Tourdetail from "./components/Tourdetail/Tourdetail";
+import Listing from "./components/Body Section/Listing Section/Listing";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -73,11 +74,11 @@ function App() {
           element: <Profile />,
         },
         {
-          path: "/tour",
-          element: <Tour />,
+          path: "/tour/",
+          element: <Listing />,
         },
         {
-          path: "/post/",
+          path: "/posts/",
           element: <Posts />,
         },
         {
@@ -85,7 +86,7 @@ function App() {
           element: <Sivdeos />,
         },
         {
-          path: "/Tourdetail/",
+          path: "/Tourdetail/:tour_id",
           element: <Tourdetail />,
         },
       ],
