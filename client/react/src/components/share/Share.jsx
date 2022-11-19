@@ -6,7 +6,9 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
-
+import { FcAddImage } from "react-icons/fc";
+import { BiMap } from "react-icons/bi";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
 const Share = () => {
   const [file, setFile] = useState(null);
   const [desc, setDesc] = useState("");
@@ -73,16 +75,19 @@ const Share = () => {
             />
             <label htmlFor="file">
               <div className="item">
-                <img src={Image} alt="" />
+                <FcAddImage className="img"></FcAddImage>
+                {/* <img src={Image} alt="" /> */}
                 <span>Add Image</span>
               </div>
             </label>
             <div className="item">
-              <img src={Map} alt="" />
+              <BiMap className="img"></BiMap>
+              {/* <img src={Map} alt="" /> */}
               <span>Add Place</span>
             </div>
             <div className="item">
-              <img src={Friend} alt="" />
+              {/* <img src={Friend} alt="" /> */}
+              <AiOutlineUsergroupAdd className="img"></AiOutlineUsergroupAdd>
               <span>Tag Friends</span>
             </div>
           </div>

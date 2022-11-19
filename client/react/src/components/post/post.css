@@ -135,13 +135,15 @@ body {
 }
 
 .post {
-  box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-  border-radius: 20px;
+  -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+  border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
 }
 .post .mainContent {
   padding: 20px;
+  border-radius: 10px;
+  width: 100%;
 }
 .post .mainContent .user {
   display: flex;
@@ -151,6 +153,7 @@ body {
 .post .mainContent .user .userInfo {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 .post .mainContent .user .userInfo img {
   width: 40px;
@@ -179,15 +182,18 @@ body {
      object-fit: cover;
   margin-top: 20px;
 }
-.post .mainContent .info {
+.post .mainContent .info .lst_icon {
   display: flex;
   align-items: center;
   gap: 20px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
 }
-.post .mainContent .info .item {
+.post .mainContent .info .lst_icon .item {
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
   font-size: 14px;
+  padding: 5px;
 }/*# sourceMappingURL=post.css.map */

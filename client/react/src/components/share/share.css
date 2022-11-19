@@ -150,7 +150,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.share .containerss .top .left img {
+.share .containerss .top .left .img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -212,6 +212,6 @@ body {
   padding: 5px;
   color: white;
   cursor: pointer;
-  background-color: #5271ff;
+  background-color: #121314;
   border-radius: 3px;
 }/*# sourceMappingURL=share.css.map */
