@@ -49,7 +49,7 @@
   width: 40px;
   height: 40px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 2px 4px var(--itemCardColor);
   margin-right: 1rem;
@@ -79,7 +79,7 @@
     flex-direction: column;
   }
   .cardSection .rightCard,
-.cardSection .leftCard {
+  .cardSection .leftCard {
     width: 100%;
     flex-basis: 100%;
   }
@@ -90,4 +90,4 @@
   .cardSection .leftCard .sideBarCard {
     display: block;
   }
-}/*# sourceMappingURL=activity.css.map */
+} /*# sourceMappingURL=activity.css?.map */

@@ -6,7 +6,9 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
-
+import { FcAddImage } from "react-icons/fc";
+import { BiMap } from "react-icons/bi";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
 const Share = () => {
   const [file, setFile] = useState(null);
   const [desc, setDesc] = useState("");
@@ -48,10 +50,14 @@ const Share = () => {
       <div className="containerss">
         <div className="top">
           <div className="left">
-            <img src={"/upload/" + currentUser.profilePic} alt="" />
+            <img
+              src={"/upload/" + currentUser.profilePic}
+              alt=""
+              className="img"
+            />
             <input
               type="text"
-              placeholder={`Chia sẻ cảm nghĩ của bạn? ${currentUser.name}?`}
+              placeholder={`Chia sẻ cảm nghĩ của ${currentUser.name} ?`}
               onChange={(e) => setDesc(e.target.value)}
               value={desc}
             />
@@ -73,16 +79,17 @@ const Share = () => {
             />
             <label htmlFor="file">
               <div className="item">
-                <img src={Image} alt="" />
+                <FcAddImage className="img"></FcAddImage>
+                {/* <img src={Image} alt="" /> */}
                 <span>Thêm ảnh</span>
               </div>
             </label>
             <div className="item">
-              <img src={Map} alt="" />
+              <BiMap className="img"></BiMap>
               <span>Thêm vị trí</span>
             </div>
             <div className="item">
-              <img src={Friend} alt="" />
+              <AiOutlineUsergroupAdd className="img"></AiOutlineUsergroupAdd>
               <span>Tag bạn bè</span>
             </div>
           </div>

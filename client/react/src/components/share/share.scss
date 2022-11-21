@@ -31,12 +31,13 @@
     padding: 20px;
     margin-top: 20px;
     .top {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
 
       .left {
-        img {
+        .img {
           width: 40px;
           height: 40px;
           border-radius: 50%;
@@ -45,11 +46,12 @@
         }
 
         input {
+          position: absolute;
           border: none;
           outline: none;
           padding: 20px 10px;
           background-color: transparent;
-          width: 60%;
+          width: 100%;
           color: var(--blackColor);
         }
       }
@@ -105,7 +107,7 @@
           padding: 5px;
           color: white;
           cursor: pointer;
-          background-color: #5271ff;
+          background-color: #121314;
           border-radius: 3px;
         }
       }

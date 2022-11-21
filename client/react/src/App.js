@@ -13,7 +13,7 @@ import LeftBar from "./components/leftBar/LeftBar";
 import RightBar from "./components/rightBar/RightBar";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
-import Tour from "./pages/tours/Tours";
+import Tour from "../src/components/tour/Tour";
 import "./style.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -74,6 +74,10 @@ function App() {
           element: <Profile />,
         },
         {
+          path: "/regions/:region_id",
+          element: <Tour />,
+        },
+        {
           path: "/tour/",
           element: <Listing />,
         },
@@ -89,10 +93,7 @@ function App() {
           path: "/Tourdetail/:tour_id",
           element: <Tourdetail />,
         },
-        {
-          path: "/regions/",
-          element: <Listing />,
-        },
+        
         
       ],
     },

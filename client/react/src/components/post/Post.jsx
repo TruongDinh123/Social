@@ -82,26 +82,28 @@ const Post = ({ post }) => {
           <img src={"/upload/" + post.img} alt="" />
         </div>
         <div className="info">
-          <div className="item">
-            {isLoading ? (
-              "loading"
-            ) : data.includes(currentUser.id) ? (
-              <FavoriteOutlinedIcon
-                style={{ color: "red" }}
-                onClick={handleLike}
-              />
-            ) : (
-              <FavoriteBorderOutlinedIcon onClick={handleLike} />
-            )}
-            {data?.length} Likes
-          </div>
-          <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
-            <TextsmsOutlinedIcon />
-            See Comments
-          </div>
-          <div className="item">
-            <ShareOutlinedIcon />
-            Share
+          <div className="lst_icon">
+            <div className="item">
+              {isLoading ? (
+                "loading"
+              ) : data.includes(currentUser.id) ? (
+                <FavoriteOutlinedIcon
+                  style={{ color: "red" }}
+                  onClick={handleLike}
+                />
+              ) : (
+                <FavoriteBorderOutlinedIcon onClick={handleLike} />
+              )}
+              {data?.length} Likes
+            </div>
+            <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
+              <TextsmsOutlinedIcon />
+              See Comments
+            </div>
+            <div className="item">
+              <ShareOutlinedIcon />
+              Share
+            </div>
           </div>
         </div>
         {commentOpen && <Comments postId={post.id} />}

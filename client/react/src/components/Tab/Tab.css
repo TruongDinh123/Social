@@ -134,86 +134,29 @@ body {
   --smallestFontSize: 0.75rem;
 }
 
-.share {
-  box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-  border-radius: 20px;
-  background-color: var(--bgColor);
-  color: var(--textColor);
-  margin-bottom: 20px;
-}
-.share .containerss {
-  padding: 20px;
-  margin-top: 20px;
-}
-.share .containerss .top {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.share .containerss .top .left .img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  display: flex;
-}
-.share .containerss .top .left input {
-  position: absolute;
-  border: none;
-  outline: none;
-  padding: 20px 10px;
-  background-color: transparent;
+.wrapper {
+  max-width: 50rem;
   width: 100%;
-  color: var(--blackColor);
+  line-height: 30px;
+  border: 1px solid #ccc;
 }
-.share .containerss .top .right {
-  flex: 1;
+.wrapper .tabs {
   display: flex;
-  justify-content: flex-end;
 }
-.share .containerss .top .right .file {
-  width: 100px;
-  height: 100px;
-  -o-object-fit: cover;
-  object-fit: cover;
-  border-radius: 0px;
+.wrapper .tabs .tab-title {
+  padding: 2rem;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  border-right: 1px solid #ccc;
 }
-.share .containerss hr {
-  margin: 20px 0px;
-  border: none;
-  height: 0.5px;
-  background-color: var(--bgColor);
+.wrapper .tabs .tab-title .nav-link {
+  color: var(--textColor);
+  font-weight: 500;
 }
-.share .containerss .bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.wrapper .tabs .tab-title:hover {
+  background: var(--itemCardHover);
+  box-shadow: 0 2px 2px var(--inputColor);
 }
-.share .containerss .bottom .left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.share .containerss .bottom .left .item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-.share .containerss .bottom .left .item img {
-  height: 20px;
-}
-.share .containerss .bottom .left .item span {
-  font-size: 12px;
-  color: gray;
-}
-.share .containerss .bottom .right button {
-  border: none;
-  padding: 5px;
-  color: white;
-  cursor: pointer;
-  background-color: #121314;
-  border-radius: 3px;
-} /*# sourceMappingURL=share.css?.map */
+.wrapper .tab-content {
+  padding: 2rem;
+} /*# sourceMappingURL=Tab.css?.map */

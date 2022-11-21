@@ -5,4 +5,5 @@ const router = express.Router();
 router.get("/", getManyTour);
 router.get("/find/:tour_id", getTourDetail);
 
+
 export default router;

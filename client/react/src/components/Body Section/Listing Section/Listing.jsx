@@ -1,14 +1,12 @@
 import React from "react";
-import "./listing.css";
+import "./listing.scss";
 
 import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../../axios";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AiFillHeart } from "react-icons/ai";
-/////////////////////
-import Tour1 from "../../../assets/Tour1.jpg";
-import user from "../../../assets/user.jpg";
+
 const Listing = ({ tour }) => {
   const { isLoading, error, data } = useQuery(["tour"], () =>
     makeRequest.get("/tours").then((res) => {
@@ -16,12 +14,11 @@ const Listing = ({ tour }) => {
     })
   );
 
-  const { data: regionData } = useQuery(["regions"], () =>
+  const { data: regionData } = useQuery(["region"], () =>
     makeRequest.get("/regions").then((res) => {
       return res.data;
     })
   );
-      console.log(regionData)
 
   return (
     <div className="lisitingSection">
@@ -35,7 +32,7 @@ const Listing = ({ tour }) => {
         ? "loading"
         : regionData.map((region) => (
           <>
-            <Link to={`/Regions/${region.region_id} `}>
+            <Link to={`/regions/${region.region_id} `}>
                 <button className="btn flex">{region.region_name}</button>
             </Link>
           </>
@@ -48,17 +45,21 @@ const Listing = ({ tour }) => {
 
       <div className="secContainer flex">
         {error
-          ? "something went wrong!"
+          ? "Something went wrong!"
           : isLoading
-          ? "loading"
-          : data.map((tour) => (
+          ? "Loading..."
+          : data?.map((tour) => (
               <div className="singleItem">
                 <AiFillHeart className="icon"></AiFillHeart>
                 <img  src={"../upload/" + tour.image} alt="" />
-                <p>Đã có {tour.like_count} người thích</p>
+                <p>Tỉnh: {tour.province_name}</p>
                 <h3 >{tour.tour_name}</h3>
                 <p>$ {tour.price}</p>
-                <Link key={tour.tour_id} to={`/Tourdetail/${tour.tour_id}`} className="btn">
+                <Link
+                  key={tour.tour_id}
+                  to={`/Tourdetail/${tour.tour_id}`}
+                  className="btn"
+                >
                   Đặt Ngay
                 </Link>
               </div>
