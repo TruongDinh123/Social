@@ -28,7 +28,9 @@ import Posts from "../src/components/posts/Posts";
 import Sivdeos from "./pages/videoShorts/Svideos";
 import Tourdetail from "./components/Tourdetail/Tourdetail";
 import Listing from "./components/Body Section/Listing Section/Listing";
+import Update from "./components/update/Update";
 
+import Admin from "./pages/Admin/Admin";
 function App() {
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
@@ -38,7 +40,6 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <div className="container">
           {/* <Navbar /> */}
-
           <Sidebar />
           {/* <div style={{ display: "flex" }}> */}
           {/* <div style={{ flex: 6 }}> */}
@@ -90,7 +91,7 @@ function App() {
           element: <Tourdetail />,
         },
       ],
-    },
+    }, //tới trang user
     {
       path: "/login",
       element: <Login />,
@@ -98,6 +99,10 @@ function App() {
     {
       path: "/register",
       element: <Register />,
+    },
+    {
+      path: "/Admin",
+      element: <Admin />,
     },
   ]);
   return (

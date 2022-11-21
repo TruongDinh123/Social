@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(inputs);
-      navigate("/");
+      navigate("/"); //thành công thì đăng nhập chuyển qua website
     } catch (err) {
       setErr(err.response.data);
     }

@@ -1,0 +1,35 @@
+.video-text {
+  position: absolute;
+  bottom: 18%;
+  color: #fff;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.video-text > h3 {
+  margin-left: 10px;
+}
+
+.footer-buttons {
+  position: absolute;
+  bottom: 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.flex-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+button {
+  padding: 5px;
+  background-color: rgb(14, 15, 15);
+  border-radius: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}/*# sourceMappingURL=Footer_reels.css.map */

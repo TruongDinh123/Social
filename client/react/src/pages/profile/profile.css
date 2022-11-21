@@ -134,27 +134,27 @@ body {
   --smallestFontSize: 0.75rem;
 }
 
-.profilesss {
+.profile {
   width: 82%;
   height: 100%;
   padding: 2rem;
   overflow: auto;
 }
-.profilesss .topSection {
+.profile .topSection {
   display: none;
 }
-.profilesss .imagesProfile {
+.profile .images {
   width: 100%;
   height: 300px;
   position: relative;
 }
-.profilesss .imagesProfile .coverPic {
+.profile .images .coverPic {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.profilesss .imagesProfile .profilePic {
+.profile .images .profilePic {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -166,10 +166,10 @@ body {
   margin: auto;
   top: 200px;
 }
-.profilesss .profileContainer {
+.profile .profileContainer {
   padding: 20px 70px;
 }
-.profilesss .profileContainer .uInfo {
+.profile .profileContainer .uInfo {
   height: 180px;
   box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
   border-radius: 20px;
@@ -181,41 +181,41 @@ body {
   justify-content: space-between;
   margin-top: 50px;
 }
-.profilesss .profileContainer .uInfo .left {
+.profile .profileContainer .uInfo .left {
   flex: 1;
   display: flex;
   gap: 10px;
 }
-.profilesss .profileContainer .uInfo .left a {
+.profile .profileContainer .uInfo .left a {
   color: black;
 }
-.profilesss .profileContainer .uInfo .center {
+.profile .profileContainer .uInfo .center {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
-.profilesss .profileContainer .uInfo .center span {
+.profile .profileContainer .uInfo .center span {
   font-size: 30px;
   font-weight: 500;
 }
-.profilesss .profileContainer .uInfo .center .info {
+.profile .profileContainer .uInfo .center .info {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-.profilesss .profileContainer .uInfo .center .info .item {
+.profile .profileContainer .uInfo .center .info .item {
   display: flex;
   align-items: center;
   gap: 5px;
   color: var(--textColor);
 }
-.profilesss .profileContainer .uInfo .center .info .item span {
+.profile .profileContainer .uInfo .center .info .item span {
   font-size: 12px;
 }
-.profilesss .profileContainer .uInfo .center button {
+.profile .profileContainer .uInfo .center button {
   border: none;
   background-color: #5271ff;
   color: white;
@@ -223,7 +223,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
-.profilesss .profileContainer .uInfo .right {
+.profile .profileContainer .uInfo .right {
   flex: 1;
   display: flex;
   align-items: center;
