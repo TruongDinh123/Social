@@ -10,8 +10,11 @@ export const getManyTour = (req, res) => {
   Jwt.verify(token, "secretkey", (err, tourInfo) => {
     if (err) return res.status(403).json("token is not valid");
     const q = 
-
-      `select * from tour as t join provinces as p on t.province_id = p.province_id `
+      tourId !== "undefined"
+      ? `select * from tour  `
+      : `SELECT * FROM regions AS r JOIN provinces AS p ON p.region_id = r.region_id
+      JOIN tour as t on p.province_id = t.province_id
+      WHERE r.region_id = ?`
       
 
     db.query(q, [tourId], (err, data) => {
@@ -22,12 +25,8 @@ export const getManyTour = (req, res) => {
 };
 export const getTourDetail = (req, res) => {
   const tourId = req.params.tour_id;
-  const token = req.cookies.accessToken;
-  if (!token) return res.status(401).json("not logged in!");
-  Jwt.verify(token, "secretkey", (err, tourInfo) => {
-    if (err) return res.status(403).json("token is not valid");
+  
     const q = 
-      
       `select * from tour where tour_id = ?`;
 
     db.query(q, [tourId], (err, data) => {
@@ -35,7 +34,6 @@ export const getTourDetail = (req, res) => {
 
       return res.status(200).json(data);
     });
-
-  });
+  
 };
 

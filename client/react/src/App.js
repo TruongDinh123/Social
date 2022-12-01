@@ -1,5 +1,7 @@
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // import Posts from "./pages/posts/Posts";
 import {
   createBrowserRouter,
@@ -28,7 +30,10 @@ import Posts from "../src/components/posts/Posts";
 import Sivdeos from "./pages/videoShorts/Svideos";
 import Tourdetail from "./components/Tourdetail/Tourdetail";
 import Listing from "./components/Body Section/Listing Section/Listing";
+import Update from "./components/update/Update";
 
+import Admin from "./pages/Admin/Admin";
+import Booking from "./components/booking/Booking";
 function App() {
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
@@ -37,15 +42,8 @@ function App() {
     return (
       <QueryClientProvider client={queryClient}>
         <div className="container">
-          {/* <Navbar /> */}
-
           <Sidebar />
-          {/* <div style={{ display: "flex" }}> */}
-          {/* <div style={{ flex: 6 }}> */}
           <Outlet />
-          {/* </div> */}
-          {/* <RightBar /> */}
-          {/* </div> */}
         </div>
       </QueryClientProvider>
     );
@@ -74,9 +72,10 @@ function App() {
           element: <Profile />,
         },
         {
-          path: "/regions/:region_id",
+          path: "/tour/regions/:region_id",
           element: <Tour />,
         },
+        
         {
           path: "/tour/",
           element: <Listing />,
@@ -86,17 +85,21 @@ function App() {
           element: <Posts />,
         },
         {
-          path: "/Svideo/",
+          path: "/reels/",
           element: <Sivdeos />,
         },
         {
-          path: "/Tourdetail/:tour_id",
+          path: "/tourdetail/:tour_id",
           element: <Tourdetail />,
+        },
+        {
+          path: "/tours/:tour_id/booking",
+          element: <Booking />,
         },
         
         
       ],
-    },
+    }, //tới trang user
     {
       path: "/login",
       element: <Login />,
@@ -104,6 +107,10 @@ function App() {
     {
       path: "/register",
       element: <Register />,
+    },
+    {
+      path: "/Admin",
+      element: <Admin />,
     },
   ]);
   return (

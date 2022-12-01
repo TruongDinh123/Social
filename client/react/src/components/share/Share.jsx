@@ -9,7 +9,7 @@ import { makeRequest } from "../../axios";
 import { FcAddImage } from "react-icons/fc";
 import { BiMap } from "react-icons/bi";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
-const Share = () => {
+const Share = (user) => {
   const [file, setFile] = useState(null);
   const [desc, setDesc] = useState("");
 
@@ -57,7 +57,7 @@ const Share = () => {
             />
             <input
               type="text"
-              placeholder={`Chia sẻ cảm nghĩ của ${currentUser.name} ?`}
+              placeholder={`Chia sẻ cảm nghĩ của ${user.name} ?`}
               onChange={(e) => setDesc(e.target.value)}
               value={desc}
             />

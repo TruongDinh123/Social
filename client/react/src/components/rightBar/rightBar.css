@@ -79,6 +79,14 @@ img {
   box-shadow: 0 2px 4px var(--inputColor);
   padding: 0.8rem 1rem;
   color: var(--textColor);
+  font-size: var(--h3FontSize);
+  background-color: var(--greyText);
+}
+
+.home-img {
+  width: 100%;
+  height: 800px;
+  position: relative;
 }
 
 .btn .icon {
@@ -166,7 +174,7 @@ body {
   height: 40px;
   border-radius: 50%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 .theme-light .rightBar .container .item .user .userInfo .online {
   width: 12px;
@@ -252,7 +260,7 @@ body {
   height: 40px;
   border-radius: 50%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 .theme-dark .rightBar .container .item .user .userInfo .online {
   width: 12px;
@@ -286,4 +294,4 @@ body {
 }
 .theme-dark .rightBar .container .item .user .buttons button:last-child {
   background-color: #f0544f;
-} /*# sourceMappingURL=rightBar.css?.map */
+}/*# sourceMappingURL=rightBar.css.map */

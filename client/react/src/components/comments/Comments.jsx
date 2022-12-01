@@ -15,6 +15,8 @@ const Comments = ({ postId }) => {
     })
   );
 
+  console.log(currentUser)
+
   const queryClient = useQueryClient();
 
   const mutation = useMutation(
@@ -38,22 +40,22 @@ const Comments = ({ postId }) => {
   return (
     <div className="comments">
       <div className="write">
-        <img src={currentUser.profilePic} alt="" />
+        <img src={`/upload/` + currentUser.profilePic} alt="" />
         <input
           type="text"
-          placeholder="write a comment"
+          placeholder="Viết bình luận..."
           value={desc}
           onChange={(e) => setDesc(e.target.value)}
         />
-        <button onClick={handleClick}>Send</button>
+        <button onClick={handleClick}>Gửi</button>
       </div>
       {error
-        ? "something went wrong!"
+        ? "Something went wrong!"
         : isLoading
-        ? "loading"
+        ? "Loading..."
         : data?.map((comment) => (
             <div className="comment">
-              <img src={comment.profilePic} alt="" />
+              <img src={`/upload/` + comment.profilePic} alt="" />
               <div className="info">
                 <span>{comment.name}</span>
                 <p>{comment.desc}</p>

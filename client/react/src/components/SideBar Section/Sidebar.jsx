@@ -8,7 +8,7 @@ import { BiBarChartSquare, BiTrendingUp } from "react-icons/bi";
 import { BsQuestionCircle } from "react-icons/bs";
 //////////////////////////////////
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
 const Sidebar = () => {
@@ -17,58 +17,58 @@ const Sidebar = () => {
     <div className="sidebar gird">
       <Link to="/" className="logoDiv flex">
         <img src={logo} alt="Image Name" />
-        <h2>VieTripSocial.</h2>
+        <h2>VieTripSocial</h2>
       </Link>
 
       <div className="menuDiv">
-        <h3 className="divTitle">Quick Menu</h3>
+        <h3 className="divTitle">Danh Mục</h3>
         <ul className="menuLists gird">
           <li className="ListItem">
-            <Link to= {`/tour/`}>
+            <NavLink to= {`/tour/`}>
               <a href="#" className="menuLink flex">
               <MdOutlineTravelExplore className="icon"></MdOutlineTravelExplore>
-              <span className="smallText">Travel Tour</span>
+              <span className="smallText">Đặt Tour</span>
             </a>
-            </Link>
+            </NavLink>
           </li>
-          <Link to={`/posts/`} className="ListItem">
+          <NavLink to={`/posts/`} className="ListItem">
             <a href="#" className="menuLink flex">
               <IoShareSocialOutline className="icon"></IoShareSocialOutline>
-              <span className="smallText">Social</span>
+              <span className="smallText">Mạng xã hội</span>
             </a>
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to={`/profile/${currentUser.id}`}
             style={{ textDecoration: "none", color: "inherit" }}
             className="ListItem"
           >
             <a href="#" className="menuLink flex">
               <CgProfile className="icon"></CgProfile>
-              <span className="smallText">Profile</span>
+              <span className="smallText">Trang cá nhân</span>
             </a>
-          </Link>
-          <Link to={`/Svideo/`} className="ListItem">
+          </NavLink>
+          <NavLink to={`/reels/`} className="ListItem">
             <a href="#" className="menuLink flex">
               <SiAirplayvideo className="icon"></SiAirplayvideo>
-              <span className="smallText">Video shorts</span>
+              <span className="smallText">Reels</span>
             </a>
-          </Link>
+          </NavLink>
         </ul>
       </div>
 
       <div className="settingDiv">
-        <h3 className="divTitle">Settings</h3>
+        <h3 className="divTitle">Khác</h3>
         <ul className="menuLists gird">
           <li className="ListItem">
             <a href="#" className="menuLink flex">
               <BiBarChartSquare className="icon"></BiBarChartSquare>
-              <span className="smallText">Charts</span>
+              <span className="smallText">Điều khoản</span>
             </a>
           </li>
           <li className="ListItem">
             <a href="#" className="menuLink flex">
               <BiTrendingUp className="icon"></BiTrendingUp>
-              <span className="smallText">Trends</span>
+              <span className="smallText">Trợ giúp</span>
             </a>
           </li>
           <li className="ListItem">
@@ -88,8 +88,8 @@ const Sidebar = () => {
           <div className="circle2"></div>
 
           <h3>Help Center</h3>
-          <p>Nếu bạn có vấn đề gì ở chúng tôi, xin hãy nhất vào mục giúp đỡ.</p>
-          <button className="btn">Go to help center</button>
+          <p>Nếu bạn có vấn đề gì, xin hãy nhấn vào mục trợ giúp.</p>
+          <button className="btn">Trợ giúp</button>
         </div>
       </div>
     </div>

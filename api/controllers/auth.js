@@ -45,7 +45,7 @@ export const login = (req, res) => {
       data[0].password
     );
     if (!checkPassword)
-      return res.status(400).json("Wrong password or username");
+      return res.status(400).json("Sai tên tài khoản hoặc mật khẩu !");
     const token = jwt.sign(
       {
         id: data[0].id,

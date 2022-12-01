@@ -26,7 +26,7 @@ const Tabs = () => {
     const postId = parseInt(useLocation().pathname.split("/")[2]);
 
   const { isLoading, error, data } = useQuery(["tour"], () =>
-    makeRequest.get("/tours/find/" + postId).then((res) => {
+    makeRequest.get("/tours/findTour/" + postId).then((res) => {
       return res.data;
     })
   );

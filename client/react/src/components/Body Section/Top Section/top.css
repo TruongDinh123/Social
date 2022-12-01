@@ -100,7 +100,7 @@
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 .topSection .cardSection .rightCard h1,
 .topSection .cardSection .rightCard p,
@@ -114,9 +114,9 @@
 }
 .topSection .cardSection .rightCard p {
   padding: 1rem;
-  color: var(--paleGreen);
-
+  color: var(--PrimaryColor);
   font-weight: 500;
+  margin-bottom: 6px;
 }
 .topSection .cardSection .rightCard .buttons {
   gap: 1rem;
@@ -126,8 +126,6 @@
   padding: 0.8rem 1.5rem;
   color: var(--PrimaryColor);
   border: 2px solid transparent;
-  font-weight: 700;
-  font-size: var(--h2FontSize);
 }
 .topSection .cardSection .rightCard .buttons .transparent {
   background: none;
@@ -264,7 +262,7 @@
     flex-direction: column;
   }
   .cardSection .rightCard,
-  .cardSection .leftCard {
+.cardSection .leftCard {
     width: 100%;
     flex-basis: 100%;
   }
@@ -289,4 +287,4 @@
   .cardSection .leftCard .sideBarCard {
     display: none !important;
   }
-} /*# sourceMappingURL=top.css?.map */
+}/*# sourceMappingURL=top.css.map */

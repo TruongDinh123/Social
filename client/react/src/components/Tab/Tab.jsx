@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import "../../components/Tab/Tab.scss";
-const Tab = ({ children, active = 0 }) => {
+// import Tab from "react-bootstrap/Tab";
+// import Tabs from "react-bootstrap/Tabs";
+const Tab4 = ({ children, active = 0 }) => {
   const [activeTab, setActiveTab] = useState(active);
   const [tabsData, setTabsData] = useState([]);
 
@@ -49,5 +51,5 @@ const TabPane = ({ children }) => {
   return { children };
 };
 
-Tab.TabPane = TabPane;
-export default Tab;
+Tab4.TabPane = TabPane;
+export default Tab4;

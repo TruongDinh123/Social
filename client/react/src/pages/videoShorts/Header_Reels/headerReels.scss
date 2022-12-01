@@ -1,0 +1,10 @@
+.video_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+}

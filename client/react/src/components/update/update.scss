@@ -6,7 +6,7 @@
     right: 0;
     margin: auto;
     width: 50%;
-    height: 50%;
+    max-height: 70%;
     background-color: white;
     padding: 50px;
     z-index: 1;
@@ -21,6 +21,9 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        margin-top: 20px;
+        font-size: 1.2rem;
+
     }
 
     .btn-delete{
@@ -33,5 +36,24 @@
         border-radius: 4px;
         cursor: pointer;
         border-inline: none;
+    }
+
+
+    label{
+        font-size: 1rem;
+        display: flex;
+
+    }
+
+    input{
+        width: 100%;
+        padding-left: 10px;
+    }
+
+    .btn-update{
+        background-color: cadetblue;
+        font-weight: 600;
+        margin-left: 0;
+
     }
 }

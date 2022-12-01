@@ -15,7 +15,7 @@ const Posts = ({ userId }) => {
 
   return (
     <div className="mainContent post">
-      <Top></Top>
+      
       <Share></Share>
       {error
         ? "Something went wrong!"

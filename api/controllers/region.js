@@ -4,7 +4,7 @@ import Jwt from "jsonwebtoken";
 export const getListRegion = (req, res) => {
   //Todo
   const regionId = req.params.region_id
-  const q = "SELECT * FROM regions" 
+  const q = "SELECT * FROM regions " 
 
   db.query(q, [regionId], (err,data) => {
     if(err) return res.status(500).json(err);
@@ -19,7 +19,6 @@ export const getTourOfRegion = (req, res) => {
   Jwt.verify(token, "secretkey", (err, regionInfo) => {
     if (err) return res.status(403).json("token is not valid");
     const q = 
-      
       `SELECT * FROM regions AS r JOIN provinces AS p ON p.region_id = r.region_id
       JOIN tour as t on p.province_id = t.province_id
       WHERE r.region_id = ? `
