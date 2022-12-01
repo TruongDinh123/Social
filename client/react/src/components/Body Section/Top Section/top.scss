@@ -53,6 +53,11 @@
           color: var(--PrimaryColor);
         }
       }
+      #signOutButton {
+        icon {
+          display: none;
+        }
+      }
     }
 
     .userDiv {

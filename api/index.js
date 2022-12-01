@@ -10,16 +10,18 @@ import authRoutes from "./routes/auth.js";
 import relationshipRoutes from "./routes/relationships.js";
 import provinceRoutes from "./routes/provinces.js";
 import tourRoutes from "./routes/tours.js";
-
+import cookieSession from "cookie-session";
+import passport from "passport";
+import passportSetup from "./passportSetup.js";
 const app = express();
-
-//middlewares
+// middlewares;
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true);
 
   next();
 });
 
+// app.use(session({ signed: false }, app));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
@@ -45,11 +47,11 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json(file.filename);
 });
 
+app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/likes", likeRoutes);
 app.use("/api/comments", commentRoutes);
-app.use("/api/auth", authRoutes);
 app.use("/api/relationships", relationshipRoutes);
 app.use("/api/provinces", provinceRoutes);
 app.use("/api/tours", tourRoutes);

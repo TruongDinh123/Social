@@ -1,7 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
+import { GoogleLogin } from "react-google-login";
 import "./login.scss";
+import { gapi } from "gapi-script";
+
+const clientId =
+  "232849903347-raa0f7579qbi3ddm3fvlnroicqsf4uqs.apps.googleusercontent.com";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -27,6 +32,23 @@ const Login = () => {
     login();
   };
 
+  // useEffect(() => {
+  //   function start() {
+  //     gapi.client.init({
+  //       clientId: clientId,
+  //       scope: "",
+  //     });
+  //   }
+  //   gapi.load("client:auth2", start);
+  // }, []);
+  // const onSuccess = (res) => {
+  //   console.log("Login successful", res.profileObj);
+  //   navigate("/");
+  // };
+
+  const onFailure = (res) => {
+    console.log("Login failed", res);
+  };
   return (
     <div className="login">
       <div className="card">
@@ -59,6 +81,18 @@ const Login = () => {
             />
             {err && err}
             <button onClick={handleLogin}>Login</button>
+            <button>Facebook</button>
+            <div id="signInGoogle">
+              <GoogleLogin
+                clientId={clientId}
+                buttonText="Login"
+                // onSuccess={onSuccess}
+                onFailure={onFailure}
+                cookiePolicy={"single_host_origin"}
+                isSignedIn={true}
+              />
+            </div>
+            <button>Github</button>
           </form>
         </div>
       </div>

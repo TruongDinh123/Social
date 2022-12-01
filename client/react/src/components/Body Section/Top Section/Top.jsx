@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./top.css";
 import { AuthContext } from "../../../context/authContext";
 import { useContext } from "react";
@@ -12,14 +12,37 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import video from "../../../assets/video_travel.mp4";
 import user from "../../../assets/user.jpg";
 import user2 from "../../../assets/user2.jpg";
-const Top = () => {
+import { Link } from "react-router-dom";
+import { GoogleLogout } from "react-google-login";
+const clientId =
+  "232849903347-raa0f7579qbi3ddm3fvlnroicqsf4uqs.apps.googleusercontent.com";
+
+const Top = (res) => {
   const { currentUser } = useContext(AuthContext);
+  // const logout = () => {
+  //   window.open("http://localhost:3000/login", "_self");
+  // };
+
+  // const [profile, setprofile] = useState({});
+
+  // const handcallbackres = (res) => {
+  //   console.log("encoded jwt id tokenL" + res.credential);
+  //   var userobj = jwt_decode(res.credential);
+  //   console.log(userobj);
+  //   setprofile(userobj);
+  // };
+
+  const onSuccess = () => {
+    console.log("log out success", Object);
+    localStorage.clear();
+    window.open("http://localhost:3000/login", "_self");
+  };
   return (
     <div className="topSection">
       <div className="headerSection flex">
         <div className="title" to={`/profile/${currentUser.profilePic}`}>
           <h1>WelCom to VieTripSocial</h1>
-          <p>Hello {currentUser.name}, Welcom back!</p>
+          <p>Hello {currentUser.name} Welcom back!</p>
         </div>
 
         <div className="serchbar flex">
@@ -33,6 +56,13 @@ const Top = () => {
           <AiOutlineShoppingCart className="icon"></AiOutlineShoppingCart>
           <div className="userImage">
             <img src={user} alt="User Image" />
+          </div>
+          <div id="signOutButton">
+            <GoogleLogout
+              clientId={clientId}
+              buttonText={"Logout"}
+              onLogoutSuccess={onSuccess}
+            />
           </div>
         </div>
       </div>

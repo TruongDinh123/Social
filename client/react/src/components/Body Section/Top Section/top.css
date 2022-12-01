@@ -48,6 +48,9 @@
 .topSection .headerSection .serchbar .icon:hover {
   color: var(--PrimaryColor);
 }
+.topSection .headerSection .serchbar #signOutButton icon {
+  display: none;
+}
 .topSection .headerSection .userDiv {
   gap: 1rem;
 }
