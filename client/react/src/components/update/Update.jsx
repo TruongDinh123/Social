@@ -65,32 +65,32 @@ const Update = ({setOpenUpdate, user}) => {
             <form action="">
                 
                 <div className="form-group">
-                    <label for="">Ảnh bìa: </label>
+                    <label htmlFor="">Ảnh bìa: </label>
                     <input type="file" onChange={(e)=>setCover(e.target.files[0])} />
                 </div>
 
                 <div className="form-group">
-                    <label for="">Ảnh đại diện: </label>
+                    <label htmlFor="">Ảnh đại diện: </label>
                     <input type="file" onChange={(e)=>setProfile(e.target.files[0])}/>
                 </div>
 
                 <div className="form-group">
-                    <label for="">Họ tên: </label>
+                    <label htmlFor="">Họ tên: </label>
                     <input type="text" name="name" onChange={handleChange} placeholder={currentUser.name} />
                 </div>
 
                 <div className="form-group">
-                    <label for="">Email: </label>
-                    <input type="text" name="name" onChange={handleChange} placeholder={currentUser.email} />
+                    <label htmlFor="">Email: </label>
+                    <input type="text" name="email" onChange={handleChange} placeholder={currentUser.email} />
                 </div>
 
                 <div className="form-group">
-                    <label for="">Quê quán: </label>
+                    <label htmlFor="">Quê quán: </label>
                     <input type="text" name="city" onChange={handleChange} placeholder={currentUser.city}/>
                 </div>
 
                 <div className="form-group">
-                    <label for="">Website: </label>
+                    <label htmlFor="">Website: </label>
                     <input type="text" name="website" onChange={handleChange} placeholder={currentUser.website}/>
                 </div>
                 

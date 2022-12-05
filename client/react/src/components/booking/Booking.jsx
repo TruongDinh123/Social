@@ -2,18 +2,28 @@ import "./booking.scss"
 import { useQuery,  useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { AuthContext } from "../../context/authContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
+import {  } from "react-router-dom";
+
+import axios from "axios";
 
 const Booking = ({setOpenUpdate, user}) => {
+    const tourId = parseInt(useLocation().pathname.split("/")[2]);
+
     const { currentUser } = useContext(AuthContext);
 
     const [texts, setTexts] = useState({ 
+        tour_id: tourId,
+        customer_id: "",
         full_name: "",
         cmnd: "",    
         phone_number: "",
         gender: "",
     })
+
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setTexts((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -33,10 +43,19 @@ const Booking = ({setOpenUpdate, user}) => {
 
     const handleClick = async (e) => {
         e.preventDefault();
-        mutation.mutate({texts});
+        mutation.mutate({...texts});
         setTexts("");
     };
-    const tourId = parseInt(useLocation().pathname.split("/")[2]);
+    
+    // const handleClick = async (e) => {
+    // e.preventDefault();
+    // try {
+    //   await axios.post("http://localhost:8800/api/booking", texts);
+    //   navigate("/");
+    // } catch (err) {
+    //   console.log(err);
+    // }
+//   };
 
     const { isLoading, error, data } = useQuery(["tour"], () =>
         makeRequest.get("/tours/findTour/" + tourId).then((res) => {
@@ -90,11 +109,19 @@ const Booking = ({setOpenUpdate, user}) => {
                 <h3>Thông tin khách hàng</h3>
                 <div className="booking-input">
                     <div className="form-group">
+                        <label htmlFor="" >Mã tour: </label>
+                        <input type="text"
+                        readOnly={true}  
+                        onChange={tourId}
+                        name="tour_id"
+                        placeholder={tourId}
+                        />
+                    </div>
+                    <div className="form-group">
                         <label htmlFor="" >Họ tên: </label>
                         <input type="text"  
                         onChange={handleChange}
                         name="full_name"
-                        value={currentUser.name}
                         />
                     </div>
 
@@ -115,8 +142,8 @@ const Booking = ({setOpenUpdate, user}) => {
                     </div>
 
                     <div className="form-group">
-                        <label for="">Giới tính: </label>
-                        <select name="" id="">
+                        <label htmlFor="">Giới tính: </label>
+                        <select name="gender" id="">
                             <option value={texts}>Nam</option>
                             <option value={texts}>Nữ</option>
                     </select>

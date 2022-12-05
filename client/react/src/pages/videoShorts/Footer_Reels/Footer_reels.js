@@ -9,7 +9,7 @@ const Footer_reels = ({ channel, song, likes, comment, shares }) => {
       <div className="video-text">
         <h3>
           {channel} . ({song})
-          <button className="video-btn">
+          <button>
             <h4 style={{ color: "white" }}>Follow</h4>
           </button>
         </h3>

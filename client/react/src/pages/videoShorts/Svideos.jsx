@@ -1,9 +1,15 @@
 import "./Svideos.scss";
+import Comments from "../../components/comments/Comments";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/authContext";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Video from "../../../src/pages/Video/Video";
 import video1 from "../../assets/video1.mp4";
 import video2 from "../../assets/video2.mp4";
 import video3 from "../../assets/video3.mp4";
 const Sivdeos = () => {
+  const [desc, setDesc] = useState("");
+  const { currentUser } = useContext(AuthContext);
   const data = [
     {
       channel: "aaa",
@@ -12,6 +18,7 @@ const Sivdeos = () => {
       likes: "32",
       comment: "2",
       shares: "23",
+      desc: "hii nhac hay qua",
     },
     {
       channel: "bbb",
@@ -20,6 +27,7 @@ const Sivdeos = () => {
       likes: "3",
       comment: "22",
       shares: "23",
+      desc: "hii cung binh thuong",
     },
     {
       channel: "ccc",
@@ -36,7 +44,7 @@ const Sivdeos = () => {
         <div className="logo">
           {/* <img alt="logo" className="insta-logo" /> */}
         </div>
-        <h3>Reels</h3>
+        <h3>Reel</h3>
         {/*  */}
 
         <div className="video-container" id="video-container">

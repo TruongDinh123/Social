@@ -18,7 +18,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import Update from "../../components/update/Update";
 import { useState } from "react";
-import Tabs from "../../components/Tabs/Tabs";
 
 const Profile = (user) => {
   const [openUpdate, setOpenUpdate] = useState(false);
@@ -38,6 +37,8 @@ const Profile = (user) => {
         return res.data;
       })
   );
+
+  console.log(data)
 
   const queryClient = useQueryClient();
 
@@ -61,77 +62,73 @@ const Profile = (user) => {
 
   return (
     <div className="profile">
-      {isLoading
-        ? "loading"
-        : data.map((user) => (
-            <>
-              <div className="images">
-                <img
-                  src={"../upload/" + user.coverPic}
-                  alt=""
-                  className="coverPic"
-                />
-                <img
-                  src={"../upload/" + user.profilePic}
-                  alt=""
-                  className="profilePic"
-                />
+      {isLoading ? (
+        "loading"
+      ) : data.map((user)=>(
+        <>
+          <div className="images">
+            
+            <img src={"../upload/" + user.coverPic} alt="" className="coverPic" />
+            <img
+              src={"../upload/" + user.profilePic}
+              alt=""
+              className="profilePic"
+            />
+          </div>
+          <div className="profileContainer">
+            <div className="uInfo">
+              <div className="left">
+                <a href="http://facebook.com">
+                  <FacebookTwoToneIcon fontSize="large" />
+                </a>
+                <a href="http://facebook.com">
+                  <InstagramIcon fontSize="large" />
+                </a>
+                <a href="http://facebook.com">
+                  <TwitterIcon fontSize="large" />
+                </a>
+                <a href="http://facebook.com">
+                  <LinkedInIcon fontSize="large" />
+                </a>
+                <a href="http://facebook.com">
+                  <PinterestIcon fontSize="large" />
+                </a>
               </div>
-              <div className="profileContainer">
-                <div className="uInfo">
-                  <div className="left">
-                    <a href="http://facebook.com">
-                      <FacebookTwoToneIcon fontSize="large" />
-                    </a>
-                    <a href="http://facebook.com">
-                      <InstagramIcon fontSize="large" />
-                    </a>
-                    <a href="http://facebook.com">
-                      <TwitterIcon fontSize="large" />
-                    </a>
-                    <a href="http://facebook.com">
-                      <LinkedInIcon fontSize="large" />
-                    </a>
-                    <a href="http://facebook.com">
-                      <PinterestIcon fontSize="large" />
-                    </a>
+              <div className="center">
+                <span>{user.name}</span>
+                <div className="info">
+                  <div className="item">
+                    <PlaceIcon />
+                    <span>{user.city}</span>
                   </div>
-                  <div className="center">
-                    <span>{user.name}</span>
-                    <div className="info">
-                      <div className="item">
-                        <PlaceIcon />
-                        <span>{user.city}</span>
-                      </div>
-                      <div className="item">
-                        <LanguageIcon />
-                        <span>{user.website}</span>
-                      </div>
-                    </div>
-                    {rIsLoading ? (
-                      "loading"
-                    ) : userId === currentUser.id ? (
-                      <button onClick={() => setOpenUpdate(true)}>
-                        Cập nhật trang cá nhân
-                      </button>
-                    ) : (
-                      <button onClick={handleFollow}>
-                        {relationshipData?.includes(currentUser.id)
-                          ? "Following"
-                          : "Follow"}
-                      </button>
-                    )}
-                  </div>
-                  <div className="right">
-                    <EmailOutlinedIcon />
-                    <MoreVertIcon />
+                  <div className="item">
+                    <LanguageIcon />
+                    <span>{user.website}</span>
                   </div>
                 </div>
-                <Posts userId={userId} />
+                {rIsLoading ? (
+                  "loading"
+                ) : userId === currentUser.id ? (
+                  <button onClick={() => setOpenUpdate(true)}>
+                    Cập nhật trang cá nhân
+                  </button>
+                ) : (
+                  <button onClick={handleFollow}>
+                    {relationshipData?.includes(currentUser.id)
+                      ? "Following"
+                      : "Follow"}
+                  </button>
+                )}
               </div>
-            </>
-          ))}
-
+              <div className="right">
+                <EmailOutlinedIcon />
+                <MoreVertIcon />
+              </div>
+            </div>
+            <Posts userId={userId} />
+          </div>
+        </>
+      ))}
       {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data} />}
     </div>
   );

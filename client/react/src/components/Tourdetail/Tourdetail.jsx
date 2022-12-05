@@ -3,9 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import React from "react";
 import { useContext, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Tabs from "../../components/Tabs/Tabs";
-import { Link } from "react-router-dom";
 
 const TourDetail = ({ tour }) => {
   const postId = parseInt(useLocation().pathname.split("/")[2]);
@@ -30,7 +29,7 @@ const TourDetail = ({ tour }) => {
               <div className="box">
                 <div className="row">
                   <h2>{tour.tour_name}</h2>
-                  <span>${tour.price}</span>
+                  <span>Giá tour: {tour.price} VNĐ</span>
                 </div>
 
                 <p>{tour.description}</p>

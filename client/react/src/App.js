@@ -17,7 +17,7 @@ import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 import Tour from "../src/components/tour/Tour";
 import "./style.scss";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -31,6 +31,9 @@ import Sivdeos from "./pages/videoShorts/Svideos";
 import Tourdetail from "./components/Tourdetail/Tourdetail";
 import Listing from "./components/Body Section/Listing Section/Listing";
 import Update from "./components/update/Update";
+import { gapi } from "gapi-script";
+import GoogleLogin from "react-google-login";
+import CeitCard from "./pages/CreitCardCheckout/CeitCard";
 
 import Admin from "./pages/Admin/Admin";
 import Booking from "./components/booking/Booking";
@@ -38,10 +41,11 @@ function App() {
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
   const queryClient = new QueryClient();
+  const User = false;
   const Layout = () => {
     return (
       <QueryClientProvider client={queryClient}>
-        <div className="container">
+        <div className="container" id="container">
           <Sidebar />
           <Outlet />
         </div>
@@ -93,6 +97,10 @@ function App() {
           element: <Tourdetail />,
         },
         {
+          path: "/ceitCard/",
+          element: <CeitCard />,
+        },
+        {
           path: "/tours/:tour_id/booking",
           element: <Booking />,
         },
@@ -116,16 +124,9 @@ function App() {
   return (
     <div>
       <RouterProvider router={router} />
+      {/* <Login></Login> */}
     </div>
   );
-
-  ////////////////////////////////////////
-  // return (
-  //   <div className="container">
-  //     <Sidebar></Sidebar>
-  //     <Body></Body>
-  //   </div>
-  // );
 }
 
 export default App;

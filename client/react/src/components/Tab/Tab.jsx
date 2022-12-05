@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import "../../components/Tab/Tab.scss";
-// import Tab from "react-bootstrap/Tab";
-// import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
 const Tab4 = ({ children, active = 0 }) => {
   const [activeTab, setActiveTab] = useState(active);
   const [tabsData, setTabsData] = useState([]);
 
-  
   useEffect(() => {
     let data = [];
 
@@ -27,7 +26,7 @@ const Tab4 = ({ children, active = 0 }) => {
     <>
       <div className="wrapper">
         <div className="tabs">
-          {tabsData?.map(({ tab }, idx) => (
+          {tabsData.map(({ tab }, idx) => (
             <li className="tab-title">
               <a
                 className={`nav-link ${idx === activeTab ? "active" : ""}`}

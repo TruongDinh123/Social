@@ -57,7 +57,7 @@ const Share = (user) => {
             />
             <input
               type="text"
-              placeholder={`Chia sẻ cảm nghĩ của ${user.name} ?`}
+              placeholder={`Chia sẻ cảm nghĩ của bạn ?`}
               onChange={(e) => setDesc(e.target.value)}
               value={desc}
             />

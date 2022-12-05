@@ -72,8 +72,8 @@ const Listing = ({ tour }) => {
                 <div className="singleItem">
                   <AiFillHeart className="icon"></AiFillHeart>
                   <img  src={"../upload/" + tour.image} alt="" />
-                  <p>Tỉnh: {tour.province_name}</p>
                   <h3 >{tour.tour_name}</h3>
+                  <span>{tour.schedual}</span>
                   <p>$ {tour.price}</p>
                   <Link
                     key={tour.tour_id}
