@@ -34,8 +34,8 @@ export const addTours = (req, res) => {
     req.body.tour_id,
     req.body.tour_name,
     req.body.price,
-    req.body.schedual,
     req.body.image,
+    req.body.schedual,
     req.body.description,
   ];
   db.query(q, [values], (err, data) => {
