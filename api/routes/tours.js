@@ -5,10 +5,16 @@ import {
   addTours,
   deleteTour,
   updateTour,
+  getListRegion,
+  getTourOfRegion,
+  
 } from "../controllers/tour.js";
 const router = express.Router();
 
 router.get("/", getManyTour);
+router.get("/findRegion/:region_id", getTourOfRegion);
+router.get("/region", getListRegion);
+
 router.post("/addtour", addTours);
 router.get("/findTour/:tour_id", getTourDetail);
 router.delete("/delete/:tour_id", deleteTour);

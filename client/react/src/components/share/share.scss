@@ -43,6 +43,7 @@
           border-radius: 50%;
           object-fit: cover;
           display: flex;
+
         }
 
         input {
@@ -84,7 +85,11 @@
         display: flex;
         align-items: center;
         gap: 20px;
+        font-size: 1.6rem;
 
+        .input{
+          font-size: 1.4rem;
+        }
         .item {
           display: flex;
           align-items: center;
@@ -96,19 +101,19 @@
           }
 
           span {
-            font-size: 12px;
+            font-size: 1.3rem;
             color: gray;
           }
         }
       }
       .right {
         button {
-          border: none;
-          padding: 5px;
-          color: white;
-          cursor: pointer;
-          background-color: #121314;
-          border-radius: 3px;
+              border: none;
+            padding: 12px;
+            color: white;
+            cursor: pointer;
+            background-color: darkslategrey;
+            border-radius: 8px;
         }
       }
     }

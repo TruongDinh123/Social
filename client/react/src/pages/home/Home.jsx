@@ -8,8 +8,12 @@ import Listing from "../../components/Body Section/Listing Section/Listing";
 import Activity from "../../components/Body Section/Activity Section/Activity";
 import "./home.scss";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
+import { useContext, useState } from "react";
 
 const Home = () => {
+    const { currentUser } = useContext(AuthContext);
+  console.log(currentUser.id)
   return (
     <div className="home">
       <div className="home-img">
@@ -17,13 +21,11 @@ const Home = () => {
       </div>
 
       <div className="buttons flex">
-        <Link to={Listing} >
-            <a href="" className="btn">Đặt Tour</a>
+        <Link to={`/login`} >
+            <div href="" className="btn">ĐĂNG NHẬP</div>
         </Link>
        
-        <Link to={`/posts} `}>
-            <a href="#" className="btn transparent">Mạng xã hội</a>
-        </Link>
+        
       </div>
      
       {/* <Stories /> */}

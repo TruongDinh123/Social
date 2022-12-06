@@ -261,6 +261,7 @@
 }
 .lisitingSection .secContainer .singleItem img {
   max-width: 100px;
+  height: 130px;
 }
 .lisitingSection .secContainer .singleItem .icon {
   position: absolute;

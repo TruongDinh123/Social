@@ -42,6 +42,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+          height: 40px;
+
 
       .userInfo {
         display: flex;
@@ -58,20 +60,23 @@
         .details {
           display: flex;
           flex-direction: column;
+              margin-top: 10px;
+
 
           .name {
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.5rem;
           }
 
           .date {
-            font-size: 12px;
+            font-size: 1.1rem;
           }
         }
       }
     }
 
     .content {
-      margin: 20px 0px;
+      margin-top: 40px;
 
       img {
         width: 100%;
@@ -79,20 +84,23 @@
         object-fit: cover;
         margin-top: 20px;
       }
+      p{
+        font-size: 1.3rem;
+      }
     }
 
     .info .lst_icon {
       display: flex;
       align-items: center;
       gap: 20px;
-      border-bottom: 1px solid #ccc;
-      border-top: 1px solid #ccc;
+          margin-top: 16px;
+
       .item {
         display: flex;
         align-items: center;
         gap: 10px;
         cursor: pointer;
-        font-size: 14px;
+        font-size: 1.4rem;
         padding: 5px;
       }
     }

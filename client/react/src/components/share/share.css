@@ -1,6 +1,6 @@
 @import url("https:fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 .mainContent {
-  width: 82%;
+  width: 80%;
   height: 100%;
   padding: 2rem;
   overflow: auto;
@@ -108,7 +108,7 @@ body {
 
 .container {
   position: relative;
-  width: 95vw;
+  width: 100vw;
   height: 95vh;
   display: flex;
   align-items: center;
@@ -203,6 +203,10 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
+  font-size: 1.6rem;
+}
+.share .containerss .bottom .left .input {
+  font-size: 1.4rem;
 }
 .share .containerss .bottom .left .item {
   display: flex;
@@ -214,14 +218,14 @@ body {
   height: 20px;
 }
 .share .containerss .bottom .left .item span {
-  font-size: 12px;
+  font-size: 1.3rem;
   color: gray;
 }
 .share .containerss .bottom .right button {
   border: none;
-  padding: 5px;
+  padding: 12px;
   color: white;
   cursor: pointer;
-  background-color: #121314;
-  border-radius: 3px;
+  background-color: darkslategrey;
+  border-radius: 8px;
 }/*# sourceMappingURL=share.css.map */

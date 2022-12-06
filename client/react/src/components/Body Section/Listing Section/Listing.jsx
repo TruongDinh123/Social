@@ -7,24 +7,45 @@ import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AiFillHeart } from "react-icons/ai";
 import Top from "../Top Section/Top";
+import Tour from "../../tour/Tour"
 import { BsQuestionCircle } from "react-icons/bs";
 import video from "../../../assets/video_travel.mp4";
 import user from "../../../assets/user.jpg";
 import user2 from "../../../assets/user2.jpg";
+import { useLocation } from "react-router-dom";
+
 const Listing = ({ tour }) => {
-  const { isLoading, error, data } = useQuery(["tour"], () =>
+    const regionId = parseInt(useLocation().pathname.split("/")[2]);
+
+  const { rIsLoading, data } = useQuery(["tour"], () =>
     makeRequest.get("/tours/").then((res) => {
       return res.data;
     })
   );
-
-  const { data: regionData } = useQuery(["region"], () =>
-    makeRequest.get("/regions/").then((res) => {
+  const { isLoading, error, data: data2 } = useQuery(["region"], () =>
+    makeRequest.get("/tours/region").then((res) => {
       return res.data;
     })
   );
 
-  console.log(tour)
+  console.log(data)
+  
+
+  // const {data:regionData } = useQuery(["tour"], () =>
+  //   makeRequest.get("/tours/").then((res) => {
+  //     return res.data;
+  //   })
+  // );
+
+  // const { data: tourOfRegionData } = useQuery(["region"], () =>
+  //   makeRequest.get("/findRegion/" + regionId).then((res) => {
+  //     return res.data;
+  //   })
+  // );
+
+  
+  // console.log(data)
+  // console.log(regionData)
   return (
     <div className="mainContent">
       <Top></Top>
@@ -54,9 +75,9 @@ const Listing = ({ tour }) => {
           ? "Something went wrong!"
           : isLoading
           ? "loading"
-          : regionData?.map((region) => (
+          : data2?.map((region) => (
             <>
-              <Link to={`/tour/regions/${region.region_id} `}>
+              <Link to={`/regions/${region.region_id} `}>
                   <button className="btn flex">{region.region_name}</button>
               </Link>
             </>
@@ -66,9 +87,9 @@ const Listing = ({ tour }) => {
         <div className="secContainer flex">
           {error
             ? "Something went wrong!"
-            : isLoading
+            : rIsLoading
             ? "Loading..."
-            : data.map((tour) => (
+            : data?.map((tour) => (
                 <div className="singleItem">
                   <AiFillHeart className="icon"></AiFillHeart>
                   <img  src={"../upload/" + tour.image} alt="" />

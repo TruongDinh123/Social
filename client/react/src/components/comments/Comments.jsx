@@ -47,7 +47,7 @@ const Comments = ({ postId }) => {
           value={desc}
           onChange={(e) => setDesc(e.target.value)}
         />
-        <button onClick={handleClick}>Gửi</button>
+        <button className="" onClick={handleClick}>Gửi</button>
       </div>
       {error
         ? "Something went wrong!"

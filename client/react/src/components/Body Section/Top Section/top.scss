@@ -22,10 +22,11 @@
   .headerSection {
     justify-content: space-between;
     .title {
-      h1 {
+      .title h1 {
         font-size: var(--h1FontSize);
         color: var(--blackColorColor);
         font-weight: 700;
+        margin-top: 22px;
       }
       p {
         font-size: var(--normalFontSize);
@@ -78,11 +79,31 @@
         width: 2.5rem;
         overflow: hidden;
         box-shadow: 0 2px 4px var(--inputColor);
+        cursor: pointer;
 
         img {
           width: 100%;
           height: 100%;
           border-radius: 10px;
+        }
+      }
+
+      .buttons {
+        gap: 1rem;
+        .btn {
+          box-shadow: none;
+          padding: 0.8rem 1.5rem;
+          color: var(--PrimaryColor);
+          border: 2px solid transparent;
+        }
+        .transparent {
+          background: none;
+          border: 2px solid var(--paleGreen);
+          color: var(--paleGreen);
+          &:hover {
+            background: var(--paleGreen);
+            color: var(--PrimaryColor);
+          }
         }
       }
     }
@@ -267,7 +288,7 @@
 
         .btn {
           position: relative;
-          color: var(--textColor);
+          color: var(--blackColor);
           z-index: 1000;
         }
         .circle1,

@@ -37,6 +37,7 @@ import CeitCard from "./pages/CreitCardCheckout/CeitCard";
 
 import Admin from "./pages/Admin/Admin";
 import Booking from "./components/booking/Booking";
+import { toast, ToastContainer } from "react-toastify";
 function App() {
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
@@ -75,14 +76,18 @@ function App() {
           path: "/profile/:id",
           element: <Profile />,
         },
-        {
-          path: "/tour/regions/:region_id",
-          element: <Tour />,
-        },
+        // {
+        //   path: "/tour/regions/:region_id",
+        //   element: <Tour />,
+        // },
         
         {
           path: "/tour/",
           element: <Listing />,
+        },
+         {
+          path: "/regions/:region_id",
+          element: <Tour />,
         },
         {
           path: "/posts/",
@@ -124,6 +129,7 @@ function App() {
   return (
     <div>
       <RouterProvider router={router} />
+      <ToastContainer autoClose={3000} position={toast.POSITION.TOP_RIGHT}></ToastContainer>
       {/* <Login></Login> */}
     </div>
   );

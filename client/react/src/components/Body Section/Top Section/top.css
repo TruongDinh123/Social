@@ -20,10 +20,11 @@
 .topSection .headerSection {
   justify-content: space-between;
 }
-.topSection .headerSection .title h1 {
+.topSection .headerSection .title .title h1 {
   font-size: var(--h1FontSize);
   color: var(--blackColorColor);
   font-weight: 700;
+  margin-top: 22px;
 }
 .topSection .headerSection .title p {
   font-size: var(--normalFontSize);
@@ -68,11 +69,30 @@
   width: 2.5rem;
   overflow: hidden;
   box-shadow: 0 2px 4px var(--inputColor);
+  cursor: pointer;
 }
 .topSection .headerSection .userDiv .userImage img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+}
+.topSection .headerSection .userDiv .buttons {
+  gap: 1rem;
+}
+.topSection .headerSection .userDiv .buttons .btn {
+  box-shadow: none;
+  padding: 0.8rem 1.5rem;
+  color: var(--PrimaryColor);
+  border: 2px solid transparent;
+}
+.topSection .headerSection .userDiv .buttons .transparent {
+  background: none;
+  border: 2px solid var(--paleGreen);
+  color: var(--paleGreen);
+}
+.topSection .headerSection .userDiv .buttons .transparent:hover {
+  background: var(--paleGreen);
+  color: var(--PrimaryColor);
 }
 .topSection .cardSection {
   margin-top: 3rem;
@@ -236,7 +256,7 @@
 }
 .topSection .cardSection .leftCard .sideBarCard .btn {
   position: relative;
-  color: var(--textColor);
+  color: var(--blackColor);
   z-index: 1000;
 }
 .topSection .cardSection .leftCard .sideBarCard .circle1,

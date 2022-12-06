@@ -9,7 +9,10 @@ import { makeRequest } from "../../axios";
 import { FcAddImage } from "react-icons/fc";
 import { BiMap } from "react-icons/bi";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
-const Share = (user) => {
+import { toast } from "react-toastify";
+import Top from "../Body Section/Top Section/Top";
+
+const Share = (post) => {
   const [file, setFile] = useState(null);
   const [desc, setDesc] = useState("");
 
@@ -43,9 +46,12 @@ const Share = (user) => {
     mutation.mutate({ desc, img: imgUrl });
     setDesc("");
     setFile(null);
+    toast.success(post)
   };
   const { currentUser } = useContext(AuthContext);
   return (
+    <div className="mainContain">
+      <Top></Top>
     <div className="share">
       <div className="containerss">
         <div className="top">
@@ -56,6 +62,7 @@ const Share = (user) => {
               className="img"
             />
             <input
+              className="input"
               type="text"
               placeholder={`Chia sẻ cảm nghĩ của bạn ?`}
               onChange={(e) => setDesc(e.target.value)}
@@ -94,10 +101,11 @@ const Share = (user) => {
             </div>
           </div>
           <div className="right">
-            <button onClick={handleClick}>Đăng bài</button>
+            <button className="btn" onClick={handleClick}>Đăng bài</button>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

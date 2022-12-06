@@ -1,59 +1,61 @@
 .login {
   height: 100vh;
-  background-color: rgb(193, 190, 255);
+  background-color: #68A88B;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .login .card {
-  width: 50%;
+  width: 70%;
   display: flex;
   background-color: white;
   border-radius: 10px;
   min-height: 600px;
   overflow: hidden;
+  flex-direction: inherit;
 }
 .login .card .left {
   flex: 1;
-  background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)), url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600") center;
+  background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)), url("./login.jpg") center;
   background-size: cover;
   padding: 50px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
   color: white;
 }
 .login .card .left h1 {
-  font-size: 100px;
-  line-height: 100px;
+  font-size: 40px;
+  margin-bottom: 24px;
 }
 .login .card .left span {
   font-size: 14px;
 }
 .login .card .left button {
-  width: 50%;
+  width: 35%;
   padding: 10px;
   border: none;
   background-color: white;
-  color: rebeccapurple;
+  color: seagreen;
   font-weight: bold;
   cursor: pointer;
+  margin: 12px 0;
 }
 .login .card .right {
   flex: 1;
   padding: 50px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
   justify-content: center;
 }
 .login .card .right h1 {
   color: #555;
+  font-weight: bold;
+  font-size: 2rem;
 }
 .login .card .right form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
 }
 .login .card .right form input {
   border: none;
@@ -61,11 +63,12 @@
   padding: 20px 10px;
 }
 .login .card .right form button {
-  width: 50%;
+  width: 100%;
   padding: 10px;
   border: none;
-  background-color: #938eef;
-  color: white;
+  background-color: cadetblue;
+  color: antiquewhite;
   font-weight: bold;
   cursor: pointer;
+  margin: 16px 0;
 }/*# sourceMappingURL=login.css.map */

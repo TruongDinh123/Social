@@ -1,6 +1,6 @@
 import React from "react";
 import "./tour.scss";
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 
 import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
@@ -11,26 +11,25 @@ import Top from "../Body Section/Top Section/Top";
 import video from "../../assets/video_travel.mp4";
 
 const Tour = ({ tour }) => {
-  const regionId = parseInt(useLocation().pathname.split("/")[3]);
+  const regionId = parseInt(useLocation().pathname.split("/")[2]);
 
-  const { isLoading, error, data } = useQuery(["region"], () =>
-    makeRequest.get("/regions/find/" + regionId).then((res) => {
+
+  const {data: regionData } = useQuery(["region"], () =>
+    makeRequest.get("/tours/region").then((res) => {
       return res.data;
     })
   );
 
-  const { isLoading: rIsLoading, data: regionData } = useQuery(["region"], () =>
-    makeRequest.get("/regions").then((res) => {
-      return res.regionData;
+  const { err, isLoading, data } = useQuery(["tour"], () =>
+    makeRequest.get("/tours/findRegion/" + regionId ).then((res) => {
+      return res.data;
     })
   );
-
-  console.log(regionData)
 
   return (
     <div className="mainContent">
       <div className="lisitingSection">
-      <Top></Top>
+      {/* <Top></Top>
         <div className="cardSection flex">
           <div className="rightCard flex">
             <p>
@@ -45,26 +44,25 @@ const Tour = ({ tour }) => {
               <video src={video} autoPlay loop muted></video>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="heading flex">
           <h1>List Tours</h1>
 
-          {error
+          {err
           ? "Something went wrong!"
-          : rIsLoading
+          : isLoading
           ? "loading"
-          : data?.map((region) => (
+          : regionData.map((region) => (
             <>
-              <Link to={`/tour/regions/${region.region_id} `}>
+              <Link to={`/regions/${region.region_id} `}>
                   <button className="btn flex">{region.region_name}</button>
               </Link>
             </>
           ))}
         </div>
-      
         <div className="secContainer flex">
-          {error
+          {err
           ? "Something went wrong!"
           : isLoading
           ? "loading"

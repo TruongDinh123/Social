@@ -1,12 +1,12 @@
 .register {
   height: 100vh;
-  background-color: rgb(193, 190, 255);
+  background-color: #68A88B;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .register .card {
-  width: 50%;
+  width: 60%;
   display: flex;
   flex-direction: row-reverse;
   background-color: white;
@@ -16,7 +16,7 @@
 }
 .register .card .left {
   flex: 1;
-  background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)), url("https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600") center;
+  background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)), url("./register.jpg") center;
   background-size: cover;
   padding: 50px;
   display: flex;
@@ -28,15 +28,18 @@
   font-size: 100px;
   line-height: 100px;
 }
+.register .card .left p {
+  font-size: 1.2rem;
+}
 .register .card .left span {
-  font-size: 14px;
+  font-size: 1.2rem;
 }
 .register .card .left button {
   width: 50%;
   padding: 10px;
   border: none;
   background-color: white;
-  color: rebeccapurple;
+  color: seagreen;
   font-weight: bold;
   cursor: pointer;
 }
@@ -49,7 +52,8 @@
   justify-content: center;
 }
 .register .card .right h1 {
-  color: #555;
+  color: #444;
+  font-size: 1.8rem;
 }
 .register .card .right form {
   display: flex;
@@ -65,8 +69,9 @@
   width: 50%;
   padding: 10px;
   border: none;
-  background-color: #938eef;
-  color: white;
+  background-color: cadetblue;
+  color: antiquewhite;
+  font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
 }/*# sourceMappingURL=register.css.map */

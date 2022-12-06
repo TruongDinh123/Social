@@ -12,6 +12,8 @@ import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
+import { toast } from "react-toastify";
+import Top from "../Body Section/Top Section/Top";
 const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,6 +25,7 @@ const Post = ({ post }) => {
       return res.data;
     })
   );
+
 
   const queryClient = useQueryClient();
 
@@ -44,6 +47,8 @@ const Post = ({ post }) => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries(["posts"]);
+        toast.success(post);
+
       },
     }
   );
@@ -55,11 +60,11 @@ const Post = ({ post }) => {
   const handleDelete = () => {
     deleteMutation.mutate(post.id);
   };
-  console.log(post)
 
   return (
     <div className="post">
       <div className="mainContent">
+
         <div className="user">
           <div className="userInfo">
             <img src={"/upload/" + post.profilePic} alt="" />
@@ -75,7 +80,7 @@ const Post = ({ post }) => {
           </div>
           <MoreHorizIcon onClick={() => setMenuOpen(!menuOpen)} />
           {menuOpen && post.userId === currentUser.id && (
-            <button onClick={handleDelete}>Xóa</button>
+            <button className="btn" onClick={handleDelete}>Xóa</button>
           )}
         </div>
         <div className="content">
@@ -108,6 +113,8 @@ const Post = ({ post }) => {
           </div>
         </div>
         {commentOpen && <Comments postId={post.id} />}
+        {/* <ToastContainer autoClose={3000} position={toast.POSITION.TOP_RIGHT}></ToastContainer> */}
+
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 @import url("https:fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 .mainContent {
-  width: 82%;
+  width: 80%;
   height: 100%;
   padding: 2rem;
   overflow: auto;
@@ -108,7 +108,7 @@ body {
 
 .container {
   position: relative;
-  width: 95vw;
+  width: 100vw;
   height: 95vh;
   display: flex;
   align-items: center;

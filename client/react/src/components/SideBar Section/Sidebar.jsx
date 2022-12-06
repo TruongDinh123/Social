@@ -8,20 +8,22 @@ import { BiBarChartSquare, BiTrendingUp } from "react-icons/bi";
 import { BsQuestionCircle } from "react-icons/bs";
 //////////////////////////////////
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
+
 const Sidebar = () => {
+    const userId = parseInt(useLocation().pathname.split("/")[2]);
+
   const { currentUser } = useContext(AuthContext);
   return (
     <div className="sidebar gird">
       <Link to="/" className="logoDiv flex">
-        <img src={logo} alt="Image Name" />
-        <h2>VieTripSocial</h2>
+        <img src="/upload/logo.jpg" alt="Image Name" />
       </Link>
 
       <div className="menuDiv">
-        <h3 className="divTitle">Danh Mục</h3>
+        <h2 className="divTitle">Danh Mục</h2>
         <ul className="menuLists gird">
           <li className="ListItem">
             <NavLink to= {`/tour/`}>
@@ -37,22 +39,28 @@ const Sidebar = () => {
               <span className="smallText">Mạng xã hội</span>
             </a>
           </NavLink>
-          <NavLink
+          {currentUser.id !== null
+          
+          ? (<NavLink
             to={`/profile/${currentUser.id}`}
             style={{ textDecoration: "none", color: "inherit" }}
-            className="ListItem"
-          >
+            className="ListItem">
             <a href="#" className="menuLink flex">
               <CgProfile className="icon"></CgProfile>
               <span className="smallText">Trang cá nhân</span>
             </a>
-          </NavLink>
+          </NavLink>)
+          : ( <Navigate to={`/login`}></Navigate>)
+          }
           <NavLink to={`/reels/`} className="ListItem">
             <a href="#" className="menuLink flex">
               <SiAirplayvideo className="icon"></SiAirplayvideo>
               <span className="smallText">Reels</span>
             </a>
+          
           </NavLink>
+        
+        
         </ul>
       </div>
 

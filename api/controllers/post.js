@@ -25,7 +25,7 @@ export const getPosts = (req, res) => {
 
 export const addPost = (req, res) => {
   const token = req.cookies.accessToken;
-  if (!token) return res.status(401).json("not logged in!");
+  if (!token) return res.status(401).json("Bạn chưa đăng nhập");
   Jwt.verify(token, "secretkey", (err, userInfo) => {
     if (err) return res.status(403).json("token is not valid");
     const q = "INSERT INTO posts (`desc`,`img`,`createAt`,`userId`) VALUES (?)";
@@ -38,7 +38,7 @@ export const addPost = (req, res) => {
     ];
     db.query(q, [values], (err, data) => {
       if (err) return res.status(500).json(err);
-      return res.status(200).json("post hass been created");
+      return res.status(200).json("Đăng bài thành công");
     });
   });
 };
@@ -55,7 +55,7 @@ export const deletePost = (req, res) => {
     db.query(q, [req.params.id, userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);
       if (data.affectedRows > 0)
-        return res.status(200).json("Post has been deleted.");
+        return res.status(200).json("Xóa bài thành công");
       return res.status(403).json("You can delete only your post");
     });
   });

@@ -5,16 +5,20 @@ import React from "react";
 import { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Tabs from "../../components/Tabs/Tabs";
+import { AuthContext } from "../../context/authContext";
+import { Navigate } from "react-router-dom";
 
 const TourDetail = ({ tour }) => {
   const postId = parseInt(useLocation().pathname.split("/")[2]);
+  const { currentUser } = useContext(AuthContext);
 
   const { isLoading, error, data } = useQuery(["tour"], () =>
     makeRequest.get("/tours/findTour/" + postId).then((res) => {
       return res.data;
     })
   );
-  console.log(data, postId)
+
+  console.log(currentUser.id)
   return (
     <div className="mainContent">
       {error
@@ -46,10 +50,19 @@ const TourDetail = ({ tour }) => {
                 </div>
 
                 <button className="box-btn">Yêu thích</button>
-                <Link to={`/tours/${tour.tour_id}/booking/`}>               
+                             
+                
+                 {currentUser.id !== null
+                 ? <Link to={`/tours/${tour.tour_id}/booking/`}>   
                  <button className="box-btn">Đặt tour</button>
-
                 </Link>
+                 : <Navigate to={`/login`}></Navigate>
+                 }
+                {/* <Link to={`/tours/${tour.tour_id}/booking/`}>   
+
+                <button className="box-btn">Đặt tour</button>
+                </Link> */}
+                
               </div>
             </div>
           ))}

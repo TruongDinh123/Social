@@ -23,8 +23,6 @@ const Booking = ({setOpenUpdate, user}) => {
     })
 
 
-    const navigate = useNavigate();
-
     const handleChange = (e) => {
         setTexts((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
@@ -143,9 +141,10 @@ const Booking = ({setOpenUpdate, user}) => {
 
                     <div className="form-group">
                         <label htmlFor="">Giới tính: </label>
-                        <select name="gender" id="">
-                            <option value={texts}>Nam</option>
-                            <option value={texts}>Nữ</option>
+                        <select onChange={handleChange} name="gender" id="">
+                            <option >Nam</option>
+                            <option value={'Nam'}>Nam</option>
+                            <option value={'Nữ'}>Nữ</option>
                     </select>
                     </div>
 

@@ -23,8 +23,7 @@ export const addBooking = (req, res) => {
   if (!token) return res.status(401).json("not logged in!");
   jwt.verify(token, "secretkey", (err, userInfo) => {
     if (err) return res.status(403).json("token is not valid");
-    const q = `INSERT INTO booking (booked_time, tour_id, customer_id, cmnd, full_name, phone_number)
-    VALUES (?)`;
+    const q = `INSERT INTO booking (booked_time, tour_id, user_id, cmnd, full_name, phone_number, gender) VALUES (?)`
     
     const values = [
       moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
@@ -33,16 +32,15 @@ export const addBooking = (req, res) => {
       req.body.cmnd,
       req.body.full_name,
       req.body.phone_number,
+      req.body.gender,
+
     ];
     db.query(q, [values], (err, data) => {
       if (err) return res.status(500).json(err);
       return res.status(200).json("Created booking");
     });
-  console.log("/ncmnd" +req.body.cmnd)
-    console.log("name" +req.body.full_name)
-  console.log("phone" +req.body.phone_number)
-  console.log(userInfo.id)
-  console.log("tour" +req.body.tour_id)
+  console.log("gender" +req.body.gender)
+   
 
   })
 };

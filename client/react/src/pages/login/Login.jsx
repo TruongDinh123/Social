@@ -1,9 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import { GoogleLogin } from "react-google-login";
 import "./login.scss";
 import { gapi } from "gapi-script";
+import styled from 'styled-components';
 
 const clientId =
   "232849903347-raa0f7579qbi3ddm3fvlnroicqsf4uqs.apps.googleusercontent.com";
@@ -14,6 +16,11 @@ const Login = () => {
     password: "",
   });
   const [err, setErr] = useState(null);
+  const WrapErr = styled.span`
+  margin-top: 5px;
+  color: red;
+`;
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -77,7 +84,10 @@ const Login = () => {
               name="password"
               onChange={handleChange}
             />
-            {err && err}
+            <WrapErr>
+              {err}
+            </WrapErr>
+            
             <button onClick={handleLogin}>Đăng nhập</button>
             <div id="signInGoogle">
               <GoogleLogin

@@ -6,6 +6,7 @@ import { BiSearchAlt } from "react-icons/bi";
 import { TbMessageCircle } from "react-icons/tb";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+
 ////////////////////////////////////
 import video from "../../../assets/video_travel.mp4";
 import user from "../../../assets/user.jpg";
@@ -17,6 +18,7 @@ const clientId =
 
 const Top = (res) => {
   const { currentUser } = useContext(AuthContext);
+
   // const logout = () => {
   //   window.open("http://localhost:3000/login", "_self");
   // };
@@ -58,9 +60,9 @@ const Top = (res) => {
       return (
       <div className="topSection">
         <div className="headerSection flex">
-          <div className="title" to={`/profile/${currentUser.profilePic}`}>
+          <div className="title" to={`/profile/${currentUser?.profilePic}`}>
             <h1>VieTripSocial</h1>
-            <p>Xin chào {currentUser.name} ! </p>
+            <p>Xin chào {currentUser?.name} ! </p>
           </div>
 
           <div className="serchbar flex">
@@ -72,16 +74,40 @@ const Top = (res) => {
             <TbMessageCircle className="icon"></TbMessageCircle>
             <IoMdNotificationsOutline className="icon"></IoMdNotificationsOutline>
             <AiOutlineShoppingCart className="icon"></AiOutlineShoppingCart>
+            <Link to={`/profile/${currentUser.id}`}>
             <div className="userImage">
-              <img src={"../upload/" + currentUser.profilePic} alt="" />
+              <img src={"../upload/" + currentUser?.profilePic} alt="" />
             </div>
-            <div id="signOutButton">
-              <GoogleLogin
-              buttonText="Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              cookiePolicy={'single_host_origin'}/>
-            </div>
+
+            </Link>
+            {currentUser.id == null
+                 ? <Link to={`/login`}>   
+                 <button className="btn">Đăng nhập</button>
+                </Link>
+                 : <Link to={`/login`}>
+                  <button className="btn">Đăng xuất</button>
+                 </Link>
+            }
+                  {/* {currentUser !== null
+                    ? <Link to="">
+                      <button className="btn">
+                        Đăng xuất
+                      </button>
+                    </Link>
+                    : <Link to="/login">
+                      <button className="btn">
+                      Đăng nhập
+                    </button>
+                    </Link>
+                  } */}
+                  
+                
+                {/* <GoogleLogin
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}/> */}
+                
           </div>
         </div>
       </div>
