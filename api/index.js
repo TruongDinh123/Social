@@ -8,11 +8,13 @@ import likeRoutes from "./routes/likes.js";
 import commentRoutes from "./routes/comments.js";
 import authRoutes from "./routes/auth.js";
 import relationshipRoutes from "./routes/relationships.js";
-import provinceRoutes from "./routes/provinces.js";
 import tourRoutes from "./routes/tours.js";
 import cookieSession from "cookie-session";
 import passport from "passport";
 import passportSetup from "./passportSetup.js";
+import regionRoutes from "./routes/regions.js";
+import bookingRoutes from "./routes/bookings.js";
+
 const app = express();
 // middlewares;
 app.use((req, res, next) => {
@@ -53,8 +55,9 @@ app.use("/api/posts", postRoutes);
 app.use("/api/likes", likeRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/relationships", relationshipRoutes);
-app.use("/api/provinces", provinceRoutes);
+app.use("/api/regions", regionRoutes);
 app.use("/api/tours", tourRoutes);
+app.use("/api/booking", bookingRoutes);
 
 app.listen(8800, () => {
   console.log("API working...");

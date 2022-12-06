@@ -53,35 +53,32 @@ const Login = () => {
     <div className="login">
       <div className="card">
         <div className="left">
-          <h1>Hello World.</h1>
+          <h1>VieTripSocial</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
-            alias totam numquam ipsa exercitationem dignissimos, error nam,
-            consequatur.
+            Nếu không thể tìm được bạn đồng hành, hãy cứ đi. Bởi khi đến nơi, bạn sẽ thấy họ ở đó !
           </p>
-          <span>Don't you have an account?</span>
+          <span>Bạn chưa có tài khoản? Đăng ký nhé !</span>
           <Link to="/register">
-            <button>Register</button>
+            <button>Đăng ký</button>
           </Link>
         </div>
         <div className="right">
-          <h1>Login</h1>
+          <h1>Đăng nhập</h1>
           <form>
             <input
               type="text"
-              placeholder="Username"
+              placeholder="Tài khoản"
               name="username"
               onChange={handleChange}
             />
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Mật khẩu"
               name="password"
               onChange={handleChange}
             />
             {err && err}
-            <button onClick={handleLogin}>Login</button>
-            <button>Facebook</button>
+            <button onClick={handleLogin}>Đăng nhập</button>
             <div id="signInGoogle">
               <GoogleLogin
                 clientId={clientId}
@@ -92,7 +89,6 @@ const Login = () => {
                 isSignedIn={true}
               />
             </div>
-            <button>Github</button>
           </form>
         </div>
       </div>

@@ -84,6 +84,11 @@
   height: 100%;
   transition: 0.3s ease;
 }
+.sidebar .menuDiv .menuLists .ListItem.active,
+.sidebar .settingDiv .menuLists .ListItem.active {
+  font-weight: 700;
+  color: #bdf094;
+}
 .sidebar .sideBarCard {
   width: 100%;
   padding: 1rem;

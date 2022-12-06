@@ -15,13 +15,13 @@ const Posts = ({ userId }) => {
 
   return (
     <div className="mainContent post">
-      <Top></Top>
+      
       <Share></Share>
       {error
         ? "Something went wrong!"
         : isLoading
         ? "loading"
-        : data.map((post) => <Post post={post} key={post.id} />)}
+        : data?.map((post) => <Post post={post} key={post.id} />)}
       {/* <Activity></Activity> */}
     </div>
   );

@@ -37,8 +37,6 @@ const Addtour = () => {
     // Tours(null);
   };
 
-  console.log(tour);
-
   return (
     <>
       <Header></Header>

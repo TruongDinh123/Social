@@ -117,8 +117,9 @@
 }
 .topSection .cardSection .rightCard p {
   padding: 1rem;
-  color: var(--paleGreen);
+  color: var(--PrimaryColor);
   font-weight: 500;
+  margin-bottom: 6px;
 }
 .topSection .cardSection .rightCard .buttons {
   gap: 1rem;

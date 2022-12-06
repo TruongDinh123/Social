@@ -29,24 +29,35 @@ const Register = () => {
     <div className="register">
       <div className="card">
         <div className="left">
-          <h1>Lama Social.</h1>
+          <h1></h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
-            alias totam numquam ipsa exercitationem dignissimos, error nam,
-            consequatur.
+            "Tuổi trẻ, chúng ta chẳng có gì ngoài đôi chân khỏe mạnh và trái tim không biết sợ. Đó là những tháng ngày đẹp nhất, 
+            duy nhất của đời người để đi và học về thế giới."
           </p>
-          <span>Do you have an account?</span>
+          <span>Bạn đã có tài khoản? Đăng nhập nhé !</span>
           <Link to="/login">
-            <button>Login</button>
+            <button>Đăng nhập</button>
           </Link>
         </div>
         <div className="right">
-          <h1>Register</h1>
+          <h1>Đăng ký tài khoản</h1>
           <form>
             <input
               type="text"
-              placeholder="Username"
+              placeholder="Tài khoản"
               name="username"
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              placeholder="Mật khẩu"
+              name="password"
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              placeholder="Họ tên"
+              name="name"
               onChange={handleChange}
             />
             <input
@@ -55,20 +66,8 @@ const Register = () => {
               name="email"
               onChange={handleChange}
             />
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              onChange={handleChange}
-            />
             {err && err}
-            <button onClick={handleClick}>Register</button>
+            <button onClick={handleClick}>Đăng ký</button>
           </form>
         </div>
       </div>

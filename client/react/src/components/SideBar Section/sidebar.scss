@@ -56,6 +56,8 @@
         width: 100%;
         position: relative;
 
+        
+
         &::before {
           position: absolute;
           content: "";
@@ -87,6 +89,11 @@
           transition: 0.3s ease;
         }
       }
+
+      .ListItem.active{
+          font-weight: 700;
+          color: #bdf094;
+        }
     }
   }
 

@@ -1,5 +1,7 @@
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // import Posts from "./pages/posts/Posts";
 import {
   createBrowserRouter,
@@ -13,7 +15,7 @@ import LeftBar from "./components/leftBar/LeftBar";
 import RightBar from "./components/rightBar/RightBar";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
-import Tour from "./pages/tours/Tours";
+import Tour from "../src/components/tour/Tour";
 import "./style.scss";
 import { useContext, useEffect } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -33,6 +35,8 @@ import { gapi } from "gapi-script";
 import GoogleLogin from "react-google-login";
 import CeitCard from "./pages/CreitCardCheckout/CeitCard";
 
+import Admin from "./pages/Admin/Admin";
+import Booking from "./components/booking/Booking";
 function App() {
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
@@ -72,6 +76,11 @@ function App() {
           element: <Profile />,
         },
         {
+          path: "/tour/regions/:region_id",
+          element: <Tour />,
+        },
+        
+        {
           path: "/tour/",
           element: <Listing />,
         },
@@ -80,17 +89,23 @@ function App() {
           element: <Posts />,
         },
         {
-          path: "/Svideo/",
+          path: "/reels/",
           element: <Sivdeos />,
         },
         {
-          path: "/Tourdetail/:tour_id",
+          path: "/tourdetail/:tour_id",
           element: <Tourdetail />,
         },
         {
           path: "/ceitCard/",
           element: <CeitCard />,
         },
+        {
+          path: "/tours/:tour_id/booking",
+          element: <Booking />,
+        },
+        
+        
       ],
     }, //tới trang user
     {
@@ -100,6 +115,10 @@ function App() {
     {
       path: "/register",
       element: <Register />,
+    },
+    {
+      path: "/Admin",
+      element: <Admin />,
     },
   ]);
   return (

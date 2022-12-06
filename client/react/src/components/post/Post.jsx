@@ -55,6 +55,7 @@ const Post = ({ post }) => {
   const handleDelete = () => {
     deleteMutation.mutate(post.id);
   };
+  console.log(post)
 
   return (
     <div className="post">
@@ -69,12 +70,12 @@ const Post = ({ post }) => {
               >
                 <span className="name">{post.name}</span>
               </Link>
-              <span className="date">{moment(post.createdAt).fromNow()}</span>
+              <span className="date">{moment(post.createAt).fromNow()}</span>
             </div>
           </div>
           <MoreHorizIcon onClick={() => setMenuOpen(!menuOpen)} />
           {menuOpen && post.userId === currentUser.id && (
-            <button onClick={handleDelete}>delete</button>
+            <button onClick={handleDelete}>Xóa</button>
           )}
         </div>
         <div className="content">
@@ -94,15 +95,15 @@ const Post = ({ post }) => {
               ) : (
                 <FavoriteBorderOutlinedIcon onClick={handleLike} />
               )}
-              {data?.length} Likes
+              {data?.length} lượt thích
             </div>
             <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
               <TextsmsOutlinedIcon />
-              See Comments
+              Bình luận
             </div>
             <div className="item">
               <ShareOutlinedIcon />
-              Share
+              Chia sẻ
             </div>
           </div>
         </div>

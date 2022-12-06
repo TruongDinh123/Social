@@ -6,6 +6,8 @@ import { useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
 
 const Update = ({setOpenUpdate, user}) => {
+    const { currentUser } = useContext(AuthContext);
+
     const [cover, setCover] = useState(null)
     const [profile, setProfile] = useState(null) //Hình thì như này
     const [texts, setTexts] = useState({ //text thì như này
@@ -59,17 +61,44 @@ const Update = ({setOpenUpdate, user}) => {
   };
     return (
         <div className="update">
-            Cập nhật thông tin
+            Chỉnh sửa thông tin
             <form action="">
-                <input type="file" onChange={(e)=>setCover(e.target.files[0])}/>
-                <input type="file" onChange={(e)=>setProfile(e.target.files[0])}/>
-                <input type="text" name="name" onChange={handleChange} />
-                <input type="text" name="city" onChange={handleChange} />
-                <input type="text" name="website" onChange={handleChange} />
+                
+                <div className="form-group">
+                    <label htmlFor="">Ảnh bìa: </label>
+                    <input type="file" onChange={(e)=>setCover(e.target.files[0])} />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="">Ảnh đại diện: </label>
+                    <input type="file" onChange={(e)=>setProfile(e.target.files[0])}/>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="">Họ tên: </label>
+                    <input type="text" name="name" onChange={handleChange} placeholder={currentUser.name} />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="">Email: </label>
+                    <input type="text" name="email" onChange={handleChange} placeholder={currentUser.email} />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="">Quê quán: </label>
+                    <input type="text" name="city" onChange={handleChange} placeholder={currentUser.city}/>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="">Website: </label>
+                    <input type="text" name="website" onChange={handleChange} placeholder={currentUser.website}/>
+                </div>
+                
                 <button className="btn-update" onClick={handleClick}>Cập nhật</button>
  
             </form>
-                <button className="btn-delete" onClick={() => setOpenUpdate(false)}>X</button>
+            <button className="btn-delete" onClick={handleClick}>X</button>
+   
         </div>
     )
 }
