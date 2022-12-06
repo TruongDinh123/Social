@@ -45,6 +45,7 @@ td a {
 }
 
 .total-price {
+  padding: 10px;
   display: flex;
   justify-content: flex-end;
 }

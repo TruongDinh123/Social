@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import creitCard from "../CreitCardCheckout/creitCard.css";
 import img1 from "../../assets/Tour1.jpg";
+import { Link } from "react-router-dom";
 const CeitCard = () => {
   return (
     <div className="small-container cart-page">
@@ -79,7 +80,9 @@ const CeitCard = () => {
             <td>Total</td>
             <td>$50.00</td>
           </tr>
-          <button className="btn">Đặt Ngay</button>
+          <Link to="/listbooking/">
+            <button className="box-btn">Đặt tour</button>
+          </Link>
         </table>
       </div>
     </div>

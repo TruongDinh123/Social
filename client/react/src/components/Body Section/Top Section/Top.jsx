@@ -31,31 +31,30 @@ const Top = (res) => {
   // };
 
   const responseGoogle = (googleUser) => {
-        console.log(JSON.stringify(googleUser));
-        const idToken = googleUser.getAuthResponse().id_token;
-        const googleEmail = googleUser.profileObj.email;
-        console.log('The id_token is ' + idToken)
-        localStorage.setItem('idToken', idToken);
-        localStorage.setItem('googleEmail', googleEmail);
-        this.props.history.push(this.props.onLogin);
-    };
+    console.log(JSON.stringify(googleUser));
+    const idToken = googleUser.getAuthResponse().id_token;
+    const googleEmail = googleUser.profileObj.email;
+    console.log("The id_token is " + idToken);
+    localStorage.setItem("idToken", idToken);
+    localStorage.setItem("googleEmail", googleEmail);
+    this.props.history.push(this.props.onLogin);
+  };
 
-    const responseGoogleLogout = (response) => {
-        console.log('Logout response:' + JSON.stringify(response));
-        localStorage.removeItem('idToken');
-        localStorage.removeItem('googleEmail');
-        console.log('Logged out')
-        this.props.history.push(this.props.onLogout)
-    };
+  const responseGoogleLogout = (response) => {
+    console.log("Logout response:" + JSON.stringify(response));
+    localStorage.removeItem("idToken");
+    localStorage.removeItem("googleEmail");
+    console.log("Logged out");
+    this.props.history.push(this.props.onLogout);
+  };
   const onSuccess = () => {
     console.log("log out success", Object);
     localStorage.clear();
     window.open("http://localhost:3000/login", "_self");
   };
-  
-  if (localStorage.getItem('googleEmail') == null){
 
-      return (
+  if (localStorage.getItem("googleEmail") == null) {
+    return (
       <div className="topSection">
         <div className="headerSection flex">
           <div className="title" to={`/profile/${currentUser.profilePic}`}>
@@ -77,18 +76,17 @@ const Top = (res) => {
             </div>
             <div id="signOutButton">
               <GoogleLogin
-              buttonText="Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              cookiePolicy={'single_host_origin'}/>
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={"single_host_origin"}
+              />
             </div>
           </div>
         </div>
       </div>
-      )
-  }
-  
-  else{
+    );
+  } else {
     return (
       <div className="topSection">
         <div className="headerSection flex">
@@ -119,9 +117,8 @@ const Top = (res) => {
           </div>
         </div>
       </div>
-    )
-  
-  };
+    );
+  }
 };
 
 export default Top;

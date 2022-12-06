@@ -55,7 +55,8 @@ const Login = () => {
         <div className="left">
           <h1>VieTripSocial</h1>
           <p>
-            Nếu không thể tìm được bạn đồng hành, hãy cứ đi. Bởi khi đến nơi, bạn sẽ thấy họ ở đó !
+            Nếu không thể tìm được bạn đồng hành, hãy cứ đi. Bởi khi đến nơi,
+            bạn sẽ thấy họ ở đó !
           </p>
           <span>Bạn chưa có tài khoản? Đăng ký nhé !</span>
           <Link to="/register">

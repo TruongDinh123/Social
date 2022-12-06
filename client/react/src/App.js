@@ -1,6 +1,6 @@
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // import Posts from "./pages/posts/Posts";
 import {
@@ -37,6 +37,8 @@ import CeitCard from "./pages/CreitCardCheckout/CeitCard";
 
 import Admin from "./pages/Admin/Admin";
 import Booking from "./components/booking/Booking";
+import ListBooking from "./components/Bookingsubmit/Bookingsubmit";
+import Bookingsubmit from "./components/Bookingsubmit/Bookingsubmit";
 function App() {
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
@@ -79,7 +81,7 @@ function App() {
           path: "/tour/regions/:region_id",
           element: <Tour />,
         },
-        
+
         {
           path: "/tour/",
           element: <Listing />,
@@ -104,8 +106,10 @@ function App() {
           path: "/tours/:tour_id/booking",
           element: <Booking />,
         },
-        
-        
+        {
+          path: "/Bookingsubmit/",
+          element: <Bookingsubmit />,
+        },
       ],
     }, //tới trang user
     {
