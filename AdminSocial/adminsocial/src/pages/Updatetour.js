@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import tour from "../pages/tour.css";
 import Button from "react-bootstrap/Button";
 import Header from "./Header";
+import { toast } from "react-toastify";
 const Updatetour = () => {
   const [tour, setTour] = useState({
     Tourname: "",
@@ -22,14 +23,27 @@ const Updatetour = () => {
     setTour((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  // const handleClick = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await axios.put("http://localhost:8800/api/tours/update/" + tourId, tour);
+  //     Navigate("/tour");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
   const handleClick = async (e) => {
     e.preventDefault();
-    try {
-      await axios.put("http://localhost:8800/api/tours/update/" + tourId, tour);
-      Navigate("/");
-    } catch (err) {
-      console.log(err);
-    }
+    await axios
+      .put("http://localhost:8800/api/tours/update/" + tourId, tour)
+      .then(({ data }) => {
+        toast.success(data);
+        Navigate("/tour");
+      })
+      .catch(({ data }) => toast.error(data));
+
+    // Tours(null);
   };
 
   console.log(tour);

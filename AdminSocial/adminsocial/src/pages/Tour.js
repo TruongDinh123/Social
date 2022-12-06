@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useLocation } from "react-router-dom";
+import { Form, json, Link, useLocation } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 // import { makeRequest } from "../axios";
 import { toast } from "react-toastify";
@@ -11,10 +11,15 @@ import Header from "./Header";
 const Tour = () => {
   const [Tours, setTours] = useState([]);
   const [onEdit, setOnEdit] = useState(null);
-
+  const [searchApiData, setSearchApiData] = useState([]);
   const getTours = async () => {
     try {
       const res = await axios.get("http://localhost:8800/api/tours");
+      // .then((response) => response.json())
+      // .then((json) => {
+      //   setTours(json);
+      //   setsearchApiData(json);
+      // });
       setTours(res.data.sort((a, b) => (a.tour_id > b.tour_id ? 1 : -1)));
     } catch (error) {
       toast.error(error);
@@ -24,43 +29,7 @@ const Tour = () => {
   useEffect(() => {
     getTours();
   }, [setTours]);
-
-  // const [Tours, setTours] = useState([]);
-
-  // useEffect(() => {
-  //   const fecthAllTours = async () => {
-  //     try {
-  //       const res = await axios.get("http://localhost:8800/api/tours/");
-  //       setTours(res.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-
-  //   fecthAllTours();
-  // }, []);
-  // const { isLoading, error, data } = useQuery(["tours"], () =>
-  //   makeRequest.get("/tours").then((res) => {
-  //     return res.data;
-  //   })
-  // );
-
-  // console.log(Tours);
-
-  // const queryClient = useQueryClient();
-
-  // const userId = parseInt(useLocation().pathname.split("/")[2]);
-
-  // const deleteMutation = useMutation(
-  //   (tour_id) => {
-  //     return makeRequest.delete("/tours/" + tour_id);
-  //   },
-  //   {
-  //     onSuccess: () => {
-  //       queryClient.invalidateQueries(["tours"]);
-  //     },
-  //   }
-  // );
+  useEffect(() => {}, []);
 
   const handleDelete = async (id) => {
     await axios
@@ -76,21 +45,49 @@ const Tour = () => {
     // Tours(null);
   };
 
+  const handleFilter = (e) => {
+    if (e.target.value == "") {
+      setTours(searchApiData);
+    } else {
+      const filterResult = searchApiData.filter((tour) =>
+        tour.tour_name.toLowerCase().includes(e.target.value.toLowerCase())
+      );
+      setTours(filterResult);
+    }
+  };
   return (
     <>
       <Header></Header>
       <div className="form">
+        <div>
+          <input
+            className="search-input"
+            type="text"
+            placeholder="Search"
+            onChange={(event) => {
+              setSearchApiData(event.target.value);
+            }}
+          />
+        </div>
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Tour Name</th>
+              <th>TourName</th>
               <th>Image</th>
               <th>description</th>
               <th>price</th>
             </tr>
           </thead>
-          {Tours.map((tour) => (
-            <tbody>
+          {Tours.filter((val) => {
+            if (searchApiData == "") {
+              return val;
+            } else if (
+              val.tour_name.toLowerCase().includes(searchApiData.toLowerCase())
+            ) {
+              return val;
+            }
+          }).map((tour) => (
+            <tbody key={tour.tour_id}>
               <tr className="tour" key={tour.tour_id}>
                 <td>
                   <p>{tour.tour_name}</p>

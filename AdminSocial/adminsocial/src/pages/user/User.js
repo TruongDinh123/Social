@@ -10,6 +10,7 @@ import Header from "../Header";
 const User = () => {
   const [Users, setUsers] = useState([]);
   const [onEdit, setOnEdit] = useState(null);
+  const [searchApiData, setSearchApiData] = useState([]);
 
   const getUsers = async () => {
     try {
@@ -42,6 +43,16 @@ const User = () => {
       <Header></Header>
 
       <div className="form">
+        <div>
+          <input
+            className="search-input"
+            type="text"
+            placeholder="Search"
+            onChange={(event) => {
+              setSearchApiData(event.target.value);
+            }}
+          />
+        </div>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -51,7 +62,15 @@ const User = () => {
               <th>Email</th>
             </tr>
           </thead>
-          {Users.map((user) => (
+          {Users.filter((val) => {
+            if (searchApiData == "") {
+              return val;
+            } else if (
+              val.username.toLowerCase().includes(searchApiData.toLowerCase())
+            ) {
+              return val;
+            }
+          }).map((user) => (
             <tbody>
               <tr className="user" key={user.id}>
                 <td>

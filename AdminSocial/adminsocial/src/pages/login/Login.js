@@ -39,7 +39,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(inputs);
-      navigate("/"); //thành công thì đăng nhập chuyển qua website
+      navigate("/tour"); //thành công thì đăng nhập chuyển qua website
     } catch (err) {
       setErr(err.response.data);
     }

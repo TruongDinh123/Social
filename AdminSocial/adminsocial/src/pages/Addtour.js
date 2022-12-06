@@ -6,6 +6,8 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Header from "./Header";
+import { toast } from "react-toastify";
+
 const Addtour = () => {
   const [tour, setTour] = useState({
     Tourname: "",
@@ -23,12 +25,16 @@ const Addtour = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    try {
-      await axios.post("http://localhost:8800/api/tours/addtour", tour);
-      navigate("/");
-    } catch (err) {
-      console.log(err);
-    }
+    await axios
+      .post("http://localhost:8800/api/tours/addtour", tour)
+      .then(({ data }) => {
+        navigate("/tour");
+
+        toast.success(data);
+      })
+      .catch(({ data }) => toast.error(data));
+
+    // Tours(null);
   };
 
   console.log(tour);
