@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@tanstack/react-query": "^4.17.1",
+    "react-icons": "^4.7.1",
+    "yarn": "^1.22.19"
+  }
+}
