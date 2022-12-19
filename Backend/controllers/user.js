@@ -14,13 +14,16 @@ export const Users = (_, res) => {
 
 export const getUser = (req, res) => {
   //Todo
-  const userId = req.params.userId;
+  const token = req.cookies.accessToken;
+  jwt.verify(token, "secretkey", (err, userId) => {
+    if (err) return res.status(401).json("token is not valid");
   const q = "Select * from users where id =?";
 
-  db.query(q, [userId], (err, data) => {
+  db.query(q, [userId.id], (err, data) => {
     if (err) return res.status(500).json(err);
     return res.json(data);
-  });
+  }, 5000);
+})
 };
 
 //Cập nhật profile

@@ -2,4 +2,27 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
+  overflow: scroll;
+}
+.posts .scroll {
+  right: 0;
+  top: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.filter .filter-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.filter .filter-wrapper {
+  padding-left: 0;
+}
+.filter .filter-wrapper .filter-item {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  font-size: 1.4rem;
+  gap: 4px;
 }/*# sourceMappingURL=posts.css.map */

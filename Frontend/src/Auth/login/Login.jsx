@@ -1,11 +1,12 @@
 
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../authContext";
+import { AuthContext } from "../../context/authContext";
 import { GoogleLogin } from "react-google-login";
 import "./login.scss";
 import { gapi } from "gapi-script";
 import styled from 'styled-components';
+import { CgSlack } from "react-icons/cg";
 
 const clientId =
   "232849903347-raa0f7579qbi3ddm3fvlnroicqsf4uqs.apps.googleusercontent.com";
@@ -36,7 +37,6 @@ const Login = () => {
     } catch (err) {
       setErr(err.response.data);
     }
-    login();
   };
 
   // useEffect(() => {
@@ -88,7 +88,7 @@ const Login = () => {
             <WrapErr>
               {err}
             </WrapErr>
-            
+
             <button onClick={handleLogin}>Đăng nhập</button>
             <div id="signInGoogle">
               <GoogleLogin

@@ -1,0 +1,15 @@
+.booking-list .title {
+  margin: 20px;
+  text-align: center;
+}
+.booking-list .list-table {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ccc;
+}
+.booking-list .list-table th {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000;
+}/*# sourceMappingURL=bookingList.css.map */

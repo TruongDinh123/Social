@@ -5,7 +5,7 @@ import React from "react";
 import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Tabs from "../../Others/Tabs/Tabs";
-import { AuthContext } from "../../../Auth/authContext";
+import { AuthContext } from "../../../context/authContext";
 import { Navigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartCircleCheck, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
@@ -20,17 +20,21 @@ const TourDetail = ({ tour }) => {
       return res.data;
     })
   );
-  console.log(currentUser)
+  console.log(data)
 
   return (
     <div className="mainContent">
-      <Link to={"/tour"} href="#" className="btn-back">&#8249; Trở lại</Link>
+      <Link to={"/tours"} href="#" className="btn-back">&#8249; Trở lại</Link>
 
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Tour</a></li>
+        <li class="breadcrumb-item active">Chi tiết Tour</li>
+      </ul>
       {error
         ? "Something went wrong!"
         : isLoading
-        ? "loading"
-        : data?.map((tour) => (
+          ? "loading"
+          : data?.map((tour) => (
             <div className="details">
               <div className="big-img">
                 <img src={"/upload/" + tour.image} alt="" />
@@ -57,21 +61,16 @@ const TourDetail = ({ tour }) => {
                 <button className="box-btn">
                   <FontAwesomeIcon icon={faHeartCircleCheck} />
                   Yêu thích</button>
-                             
-                
-                 {currentUser.id !== null
-                 ? <Link to={`/tours/${tour.tour_id}/booking/`}>
-                    <button className="box-btn">
-                        <FontAwesomeIcon icon={faShoppingBag} />
-                      Đặt tour</button>
-                </Link>
-                 : <Navigate to={`/login`}></Navigate>
-                 }
-                {/* <Link to={`/tours/${tour.tour_id}/booking/`}>   
 
-                <button className="box-btn">Đặt tour</button>
-                </Link> */}
-                
+
+                {currentUser.id !== null
+                  ? <Link to={`/tours/${tour.tour_id}/booking/`}>
+                    <button className="box-btn">
+                      <FontAwesomeIcon icon={faShoppingBag} />
+                      Đặt tour</button>
+                  </Link>
+                  : <Navigate to={`/login`}></Navigate>
+                }
               </div>
             </div>
           ))}

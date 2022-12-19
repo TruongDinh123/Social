@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import "./comments.scss";
-import { AuthContext } from "../../../Auth/authContext";
+import { AuthContext } from "../../../context/authContext";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../../axios";
 import moment from "moment";
@@ -52,8 +52,8 @@ const Comments = ({ postId }) => {
       {error
         ? "Something went wrong!"
         : isLoading
-        ? "Loading..."
-        : data?.map((comment) => (
+          ? "Loading..."
+          : data?.map((comment) => (
             <div className="comment">
               <img src={`/upload/` + comment.profilePic} alt="" />
               <div className="info">

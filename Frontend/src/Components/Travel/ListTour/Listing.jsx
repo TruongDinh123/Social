@@ -1,17 +1,18 @@
 import React from "react";
 import "../../Travel/Tour/tour.scss";
-
 import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../../axios";
 import { Link } from "react-router-dom";
 import { AiFillHeart } from "react-icons/ai";
-import Top from "../../Container/Top/Top";
-import video from "../../../assets/video_travel.mp4";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 const Listing = ({ tour }) => {
-    const regionId = parseInt(useLocation().pathname.split("/")[2]);
+  const regionId = parseInt(useLocation().pathname.split("/")[2]);
 
+  //Get tour
+
+  //Get miền
   const { rIsLoading, data } = useQuery(["tour"], () =>
     makeRequest.get("/tours/").then((res) => {
       return res.data;
@@ -25,50 +26,63 @@ const Listing = ({ tour }) => {
 
   return (
     <div className="mainContent">
-      <Top></Top>
-      <div className="cardSection flex">
-        <div className="rightCard flex">
-          <p>
-            "Những ngày đôi chân chưa mỏi, có tiền cũng khó mà mua"
-          </p>
+      <div className="categories">
+        <h3 className="categories__title">
+          LOẠI HÌNH
+        </h3>
 
-          <div className="buttons flex">
-             <button className="btn">Đặt Tour</button>
+        <div className="categories__wrapper">
+          <li className="categories__item">
+            <Link to="/activities">
+              <img className="icon" src="/upload/Rung.jpg" alt="" />
+              <span className="name">Hoạt động tham quan</span>
+            </Link>
+          </li>
+
+          <li className="categories__item">
+            <Link>
+              <img className="icon" src="/upload/Rung.jpg" alt="" />
+              <span className="name">Tour du lịch</span>
+            </Link>
+          </li>
+
+        </div>
+
+
+        {/* <div className="buttons flex">
+            <button className="btn">Đặt Tour</button>
             <button className="btn transparent">Mạng xã hội</button>
           </div>
           <div className="videoDiv">
             <video src={video} autoPlay loop muted></video>
-          </div>
-        </div>
-
-        
+          </div> */}
       </div>
-      <div className="listTour">
-      
-        <div className="region flex">
 
-          {error
-          ? "Something went wrong!"
-          : isLoading
-          ? "loading"
-          : data2?.map((region) => (
-            <>
-              <Link to={`/regions/${region.region_id} `}>
-                  <button className="btn-region flex">{region.region_name}</button>
-              </Link>
-            </>
-          ))}
-        </div>
-      
+
+      <div className="listTour">
+
         <div className="tourContainer flex">
+          <div className="region flex">
+            {error
+              ? "Something went wrong!"
+              : isLoading
+                ? "loading"
+                : data2?.map((region) => (
+                  <>
+                    <Link to={`/regions/${region.region_id} `}>
+                      <button className="btn-region flex">{region.region_name}</button>
+                    </Link>
+                  </>
+                ))}
+          </div>
           {error
             ? "Something went wrong!"
             : rIsLoading
-            ? "Loading..."
-            : data?.map((tour) => (
+              ? "Loading..."
+              : data?.map((tour) => (
                 <div className="singleItem">
                   <AiFillHeart className="icon"></AiFillHeart>
-                  <img  src={"../upload/" + tour.image} alt="" />
+                  <img src={"../upload/" + tour.image} alt="" />
                   <h3 >{tour.tour_name}</h3>
                   <span>{tour.schedual}</span>
                   <p>$ {tour.price}</p>
@@ -80,9 +94,9 @@ const Listing = ({ tour }) => {
                     Đặt Ngay
                   </Link>
                 </div>
-            ))}
+              ))}
         </div>
-    </div>
+      </div>
     </div>
   );
 };

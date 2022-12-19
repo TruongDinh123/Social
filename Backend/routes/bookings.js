@@ -1,8 +1,9 @@
 import express from "express";
-import { getBooking, addBooking } from "../controllers/booking.js";
+import { getBookings, getBookingById, addBooking } from "../controllers/booking.js";
 const router = express.Router();
 
-router.get("/findBooking/:booking_id", getBooking);
+router.get("/", getBookings);
+router.get("/find/:booking_id", getBookingById);
 router.post("/", addBooking);
 
 export default router;

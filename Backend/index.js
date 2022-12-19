@@ -13,7 +13,7 @@ import cookieSession from "cookie-session";
 import passport from "passport";
 import passportSetup from "./passportSetup.js";
 import bookingRoutes from "./routes/bookings.js";
-
+import keyRoutes from "./routes/keys.js";
 const app = express();
 // middlewares;
 app.use((req, res, next) => {
@@ -34,7 +34,7 @@ app.use(cookieParser());
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../client/react/public/upload");
+    cb(null, "../Frontend/public/upload");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
@@ -57,6 +57,7 @@ app.use("/api/relationships", relationshipRoutes);
 app.use("/api/tours", tourRoutes);
 app.use("/api/booking", bookingRoutes);
 app.use("/api/regions", tourRoutes);
+app.use("/api/keys", keyRoutes);
 
 app.listen(8800, () => {
   console.log("API working...");

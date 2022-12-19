@@ -11,7 +11,7 @@ const passportSetup = () => {
       {
         clientID: GOOGLE_CLIENT_ID,
         clientSecret: GOOGLE_CLIENT_SECRET,
-        callbackURL: "/auth/google/callback",
+        callbackURL: "/context/google/callback",
       },
       function (accessToken, refreshToken, profile, cb) {
         done(null, profile);

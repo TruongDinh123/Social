@@ -1,59 +1,53 @@
-.update{
+.update,
+.requiredLogin {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 50%;
+  background-color: white;
+  padding: 50px;
+  z-index: 1;
+  border-radius: 12px;
+  box-shadow: 0px 0px 25px -10px rgb(0 0 0 / 38%);
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+
+  .btn-delete {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 50%;
-    max-height: 70%;
-    background-color: white;
-    padding: 50px;
-    z-index: 1;
-    border-radius: 12px;
-    box-shadow: 0px 0px 25px -10px rgb(0 0 0 / 38%);
-    font-size: 1.6rem;
-    font-weight: bold;
-    text-align: center;
+    width: 30px;
+    right: 10px;
+    top: 10px;
+    background-color: black;
+    font-size: 1.4rem;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    border-inline: none;
+  }
 
+  label {
+    font-size: 1rem;
+    display: flex;
+  }
 
-    form{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        margin-top: 20px;
-        font-size: 1.2rem;
+  input {
+    width: 100%;
+    padding-left: 10px;
+  }
 
-    }
-
-    .btn-delete{
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        background-color: green;
-        font-size: 1.4rem;
-        color: white;
-        border-radius: 4px;
-        cursor: pointer;
-        border-inline: none;
-    }
-
-
-    label{
-        font-size: 1rem;
-        display: flex;
-
-    }
-
-    input{
-        width: 100%;
-        padding-left: 10px;
-    }
-
-    .btn-update{
-        background-color: cadetblue;
-        font-weight: 600;
-        margin-left: 0;
-
-    }
+  .btn-update {
+    background-color: cadetblue;
+    font-weight: 600;
+    margin-left: 0;
+  }
 }

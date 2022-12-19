@@ -1,10 +1,11 @@
 import "./Svideos.scss";
 import { useContext, useState } from "react";
-import { AuthContext } from "../../../Auth/authContext";
-import Video from "../../../Components/Others/Video/Video";
-import video1 from "../../../../src/assets/video1.mp4";
-import video2 from "../../../../src/assets/video2.mp4";
-import video3 from "../../../../src/assets/video3.mp4";
+import { AuthContext } from "../../../context/authContext";
+import Video from "../../../components/Others/Video/Video";
+import video1 from "../../../assets/video1.mp4";
+import video2 from "../../../assets/video1.mp4";
+import video3 from "../../../assets/video1.mp4";
+
 const Sivdeos = () => {
   const [desc, setDesc] = useState("");
   const { currentUser } = useContext(AuthContext);

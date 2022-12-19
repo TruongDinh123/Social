@@ -219,14 +219,6 @@ td a {
   max-width: 350px;
 }
 
-td:last-child {
-  text-align: right;
-}
-
-th:last-child {
-  text-align: right;
-}
-
 .btn {
   margin-top: 10px;
 }/*# sourceMappingURL=booking.css.map */

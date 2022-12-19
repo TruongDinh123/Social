@@ -1,0 +1,56 @@
+@import "../../../style.scss";
+
+.key {
+  @include themify($themes) {
+    background-color: themed("bg");
+    color: themed("textColor");
+
+    .key-title {
+      margin: 20px;
+      text-align: center;
+    }
+    .key-search {
+      width: 50%;
+      margin: 12px auto;
+      border: 1px solid #ccc;
+      input {
+        border: none;
+        flex: 9;
+        outline: none;
+        margin: 0 12px;
+      }
+      .key-icon {
+        font-size: 2rem;
+        flex: 1;
+        cursor: pointer;
+      }
+    }
+
+    .list-table {
+      width: fit-content;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid #ccc;
+
+      th {
+        font-size: 1rem;
+        font-weight: 600;
+        color: themed("textColor");
+      }
+
+      td {
+        color: themed("textColor");
+      }
+
+      tbody {
+        td:nth-child(3) {
+          width: 50%;
+        }
+        td:nth-child(4) {
+          width: 30%;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,3 @@
-
-
 import "./profile.scss";
 import FacebookTwoToneIcon from "@mui/icons-material/FacebookTwoTone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -13,13 +11,14 @@ import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../authContext";
+import { AuthContext } from "../../context/authContext";
 import Update from "../../components/Others/Update/Update";
 import { useState } from "react";
-
+import RequireLogin from "../../components/Others/Update/RequireLogin"
 const Profile = (user) => {
   const [openUpdate, setOpenUpdate] = useState(false);
   const { currentUser } = useContext(AuthContext);
+  // const { notcurrentUser } = useContext(null);
 
   const userId = parseInt(useLocation().pathname.split("/")[2]);
 
@@ -61,11 +60,12 @@ const Profile = (user) => {
   return (
     <div className="profile">
       {isLoading ? (
-        "loading"
-      ) : data?.map((user)=>(
+        <RequireLogin />
+
+      ) : data?.map((user) => (
         <>
           <div className="images">
-            
+
             <img src={"../upload/" + user.coverPic} alt="" className="coverPic" />
             <img
               src={"../upload/" + user.profilePic}
@@ -100,19 +100,19 @@ const Profile = (user) => {
                 </div>
                 {rIsLoading ? (
                   "loading"
-                ) : userId === currentUser.id ? 
-                (
-                  <button onClick={() => setOpenUpdate(true)}>
-                    Cập nhật trang cá nhân
-                  </button>
-                ) 
-                : (
-                  <button onClick={handleFollow}>
-                    {relationshipData?.includes(currentUser.id)
-                      ? "Following"
-                      : "Follow"}
-                  </button>
-                )}
+                ) : userId === currentUser.id ?
+                  (
+                    <button onClick={() => setOpenUpdate(true)}>
+                      Cập nhật trang cá nhân
+                    </button>
+                  )
+                  : (
+                    <button onClick={handleFollow}>
+                      {relationshipData?.includes(currentUser.id)
+                        ? "Following"
+                        : "Follow"}
+                    </button>
+                  )}
               </div>
               <div className="right">
                 <EmailOutlinedIcon />

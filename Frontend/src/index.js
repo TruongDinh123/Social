@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { AuthContextProvider } from "../../Frontend/src/Auth/authContext";
-import { DarkModeContextProvider } from "../src/Components/Others/darkModeContext";
+import { AuthContextProvider } from "../src/context/authContext";
+import { DarkModeContextProvider } from "../src/context/darkModeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

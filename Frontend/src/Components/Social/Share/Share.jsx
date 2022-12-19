@@ -1,6 +1,6 @@
 import "./share.scss";
 import { useContext, useState } from "react";
-import { AuthContext } from "../../../Auth/authContext";
+import { AuthContext } from "../../../context/authContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../../axios";
 import { FcAddImage } from "react-icons/fc";
@@ -27,8 +27,8 @@ const Share = (post) => {
   };
 
   const handleChange = (e) => {
-        setDesc((prev) => ({...prev, [e.target.name]: [e.target.value]}))
-    }
+    setDesc((prev) => ({ ...prev, [e.target.name]: [e.target.value] }))
+  }
   const queryClient = useQueryClient();
 
   const mutation = useMutation(
@@ -53,7 +53,7 @@ const Share = (post) => {
   const { currentUser } = useContext(AuthContext);
   return (
     <div className="mainContain">
-    <div className="share">
+      <div className="share">
         <div className="top">
           <div className="left">
             <img
@@ -65,7 +65,7 @@ const Share = (post) => {
               className="input"
               type="text"
               placeholder={`Chia sẻ cảm nghĩ của bạn ?`}
-onChange={handleChange}              name="desc"
+              onChange={handleChange} name="desc"
             />
           </div>
           <div className="right">
@@ -90,16 +90,16 @@ onChange={handleChange}              name="desc"
                 <span>Thêm ảnh</span>
               </div>
             </label>
-            <div>
-                <BiMap className="img"></BiMap>
+            <div className="item">
+              <BiMap className="img"></BiMap>
               <input
                 className="input"
                 type="text"
                 name="city"
                 placeholder={`Thêm vị trí`}
-onChange={handleChange}              />
+                onChange={handleChange} />
             </div>
-            
+
             <div className="item">
               <AiOutlineUsergroupAdd className="img"></AiOutlineUsergroupAdd>
               <span>Tag bạn bè</span>
@@ -109,8 +109,8 @@ onChange={handleChange}              />
             <button className="btn" onClick={handleClick}>Đăng bài</button>
           </div>
         </div>
-      
-    </div>
+
+      </div>
     </div>
   );
 };

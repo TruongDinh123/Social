@@ -19,7 +19,7 @@ const Register = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8800/api/auth/register", inputs);
+      await axios.post("http://localhost:8800/api/context/register", inputs);
     } catch (err) {
       setErr(err.response.data);
     }
@@ -31,7 +31,7 @@ const Register = () => {
         <div className="left">
           <h1></h1>
           <p>
-            "Tuổi trẻ, chúng ta chẳng có gì ngoài đôi chân khỏe mạnh và trái tim không biết sợ. Đó là những tháng ngày đẹp nhất, 
+            "Tuổi trẻ, chúng ta chẳng có gì ngoài đôi chân khỏe mạnh và trái tim không biết sợ. Đó là những tháng ngày đẹp nhất,
             duy nhất của đời người để đi và học về thế giới."
           </p>
           <span>Bạn đã có tài khoản? Đăng nhập nhé !</span>

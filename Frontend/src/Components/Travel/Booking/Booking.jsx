@@ -1,7 +1,7 @@
 import "./booking.scss";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../../axios";
-import { AuthContext } from "../../../Auth/authContext";
+import { AuthContext } from "../../../context/authContext";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import Form from "react-bootstrap/Form";
@@ -10,7 +10,7 @@ import axios from "axios";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Col from "react-bootstrap/Col";
 
-const Booking = ({  user }) => {
+const Booking = ({ user }) => {
   const tourId = parseInt(useLocation().pathname.split("/")[2]);
   // const { data : booking  } = useQuery(["booking"], () =>
   //   makeRequest.get("/booking/findBooking/").then((res) => {
@@ -50,19 +50,9 @@ const Booking = ({  user }) => {
   const handleClick = async (e) => {
     e.preventDefault();
     mutation.mutate({ ...texts });
-    navigate("/booking-submit/")
+    navigate("/booking-list/")
     setTexts("");
   };
-
-  // const handleClick = async (e) => {
-  // e.preventDefault();
-  // try {
-  //   await axios.post("http://localhost:8800/api/booking", texts);
-  //   navigate("/");
-  // } catch (err) {
-  //   console.log(err);
-  // }
-  //   };
 
   const { isLoading, error, data } = useQuery(["tour"], () =>
     makeRequest.get("/tours/findTour/" + tourId).then((res) => {
@@ -70,98 +60,98 @@ const Booking = ({  user }) => {
     })
   );
   return (
-    
+
     <div className="mainContent">
       {/* Header của booking */}
       {error
-          ? "Something went wrong!"
-          : isLoading
+        ? "Something went wrong!"
+        : isLoading
           ? "loading"
           : data?.map((tour) => (
-    <div className="small-container cart-page">
-      <table>
-        <tr>
-          <th>Tour</th>
-          <th>Số lượng</th>
-          <th>Đơn giá</th>
-        </tr>
-        <tr>
-          <td>
-            <div className="cart-info">
-              <img src={"/upload/" + tour.image} alt="" />
-              <div className="tour-details">
-                <h5>Mã tour: {tour.tour_id}</h5>
-                <p>
-                    <span className="tour-col-4">Tour du lịch:</span>
-                    <span className="tour-col-8">{tour.tour_name}</span>
-                </p>
-                <p>
-                  <span className="tour-col-4">Ngày khởi hành:</span>
-                  <span className="tour-col-8">{tour.go_time}</span>
-                </p>
-                <p>
-                  <span className="tour-col-4">Lịch trình:</span>
-                  <span className="tour-col-8">{tour.schedual}</span>
-                </p>
-                <div className="remove">
-                  <a href="">Xóa</a>
-                </div>
-                
-              </div>
-            </div>
-          </td>
-          <td>
-            <input type="number" value={1} />
-          </td>
-          <td>{tour.price} VNĐ</td>
-        </tr>
-      </table>
-      <Row className="g-2">
-        <Form.Floating>
-          <Form.Control
-          onChange={handleChange}
-            id="floatingPasswordCustom"
-            type="text"
-            placeholder="SDT"
-          />
-          <label name="full_name" htmlFor="floatingPasswordCustom">Họ tên: </label>
-        </Form.Floating>
-        
-        <Form.Floating>
-          <Form.Control
-          onChange={handleChange}
-          name="cmnd"
-            id="floatingPasswordCustom"
-            type="text"
-            placeholder="SDT"
-          />
-          <label htmlFor="floatingPasswordCustom">CMND: </label>
-        </Form.Floating>
+            <div className="small-container cart-page">
+              <table>
+                <tr>
+                  <th>Tour</th>
+                  <th>Số lượng</th>
+                  <th>Đơn giá</th>
+                </tr>
+                <tr>
+                  <td>
+                    <div className="cart-info">
+                      <img src={"/upload/" + tour.image} alt="" />
+                      <div className="tour-details">
+                        <h5>Mã tour: {tour.tour_id}</h5>
+                        <p>
+                          <span className="tour-col-4">Tour du lịch:</span>
+                          <span className="tour-col-8">{tour.tour_name}</span>
+                        </p>
+                        <p>
+                          <span className="tour-col-4">Ngày khởi hành:</span>
+                          <span className="tour-col-8">{tour.go_time}</span>
+                        </p>
+                        <p>
+                          <span className="tour-col-4">Lịch trình:</span>
+                          <span className="tour-col-8">{tour.schedual}</span>
+                        </p>
+                        <div className="remove">
+                          <a href="">Xóa</a>
+                        </div>
 
-        <Col md>
-          <FloatingLabel controlId="floatingInputGrid" label="Email: ">
-            <Form.Control
-            name="email"
-          onChange={handleChange}
-            type="email" placeholder="name@example.com" />
-          </FloatingLabel>
-        </Col>
-        <Col md>
-          <FloatingLabel controlId="floatingInputGrid" label="Số điện thoại:">
-            <Form.Control
-            name="phone_number"
-          onChange={handleChange}
-            type="email" placeholder="name@example.com" />
-          </FloatingLabel>
-        </Col>
-        <div className="form-group">
-              <label htmlFor="">Giới tính: </label>
-              <select onChange={handleChange} name="gender" id="">
-                  <option value={'Nam'}>Nam</option>
-                  <option value={'Nữ'}>Nữ</option>
-          </select>
-          </div>
-        {/* <div className="form-add">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <input type="number" value={1} />
+                  </td>
+                  <td>{tour.price} VNĐ</td>
+                </tr>
+              </table>
+              <Row className="g-2">
+                <Form.Floating>
+                  <Form.Control
+                    onChange={handleChange}
+                    id="floatingPasswordCustom"
+                    type="text"
+                    placeholder="SDT"
+                  />
+                  <label name="full_name" htmlFor="floatingPasswordCustom">Họ tên: </label>
+                </Form.Floating>
+
+                <Form.Floating>
+                  <Form.Control
+                    onChange={handleChange}
+                    name="cmnd"
+                    id="floatingPasswordCustom"
+                    type="text"
+                    placeholder="SDT"
+                  />
+                  <label htmlFor="floatingPasswordCustom">CMND: </label>
+                </Form.Floating>
+
+                <Col md>
+                  <FloatingLabel controlId="floatingInputGrid" label="Email: ">
+                    <Form.Control
+                      name="email"
+                      onChange={handleChange}
+                      type="email" placeholder="name@example.com" />
+                  </FloatingLabel>
+                </Col>
+                <Col md>
+                  <FloatingLabel controlId="floatingInputGrid" label="Số điện thoại:">
+                    <Form.Control
+                      name="phone_number"
+                      onChange={handleChange}
+                      type="email" placeholder="name@example.com" />
+                  </FloatingLabel>
+                </Col>
+                <div className="form-group">
+                  <label htmlFor="">Giới tính: </label>
+                  <select onChange={handleChange} name="gender" id="">
+                    <option value={'Nam'}>Nam</option>
+                    <option value={'Nữ'}>Nữ</option>
+                  </select>
+                </div>
+                {/* <div className="form-add">
             <h5>Thêm khách hàng</h5>
             <div>
               <table className="list-table">
@@ -198,33 +188,33 @@ const Booking = ({  user }) => {
               </table>
             </div>
           </div> */}
-      </Row>
+              </Row>
 
-      <div className="total-price">
-        <table>
-          <tr>
-            <td>Đơn giá:</td>
-            <td>{tour.price}</td>
-          </tr>
-          <tr>
-            <td>Thuế</td>
-            <td>0 </td>
-          </tr>
-          <tr>
-            <td>Tổng cộng:</td>
-            <td>{tour.price} VNĐ</td>
-          </tr>
-          {/* <Link to={`/booking-submit/`} > */}
-            <button onClick={handleClick} 
-            className="btn"
-            >Đặt Ngay</button> 
-            
-          {/* </Link> */}
-        </table>
-      </div>
-    </div>
-    ))}
-      
+              <div className="total-price">
+                <table>
+                  <tr>
+                    <td>Đơn giá:</td>
+                    <td>{tour.price}</td>
+                  </tr>
+                  <tr>
+                    <td>Thuế</td>
+                    <td>0 </td>
+                  </tr>
+                  <tr>
+                    <td>Tổng cộng:</td>
+                    <td>{tour.price} VNĐ</td>
+                  </tr>
+                  {/* <Link to={`/booking-submit/`} > */}
+                  <button onClick={handleClick}
+                    className="btn"
+                  >Đặt Ngay</button>
+
+                  {/* </Link> */}
+                </table>
+              </div>
+            </div>
+          ))}
+
       {/* <div className="booking-header">
         <div className="booking-step-bar">
           <div className="booking-step-info">Thông tin khách hàng</div>
@@ -336,15 +326,15 @@ const Booking = ({  user }) => {
               </table>
             </div>
           </div> */}
-          {/* <Link to="/ceitCard/">
+      {/* <Link to="/ceitCard/">
             <div style={{ display: "flex" }}>
               <button className="box-btn" onClick={handleClick}>
                 Đặt tour
               </button>
             </div>
           </Link> */}
-        </div>
-      
+    </div>
+
   );
 };
 
